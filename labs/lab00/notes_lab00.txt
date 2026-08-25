@@ -1,0 +1,12 @@
+I enjoyed this lab, there were a few things I struggled with. First, it's been a sec since I used my linux commands,
+and so I had to brush up on that a bit. This was mainly just syntax issues I caused, I had to look up how to copy
+things, edit files, and how filepaths work in mac because I was having a weird bug with it and I didn't know what
+was causing it. It turns out I copied the image filepath wrong somehow, but I didn't realize that and just thought "huh I
+guess filepaths look weird in MacOS," because I'm a relatively new mac user, and I solved it just by searching for the 
+error, and google said I pasted some weird fake filepath and not the correct one. I learned a few different file 
+editors including micro and vim, and I ended up using micro just because it seems easier right now, but I heard
+ vim is the industry standard, and so I'll have to learn that at one point.  Installing the software needed and 
+ pushing went smoothly enough, I just had to follow the instructions, and I already had xcode installed, 
+ so that made it easier that I didn't have to do that again. 
+
+FIX SPELLING ERRORS BEFORE YOU SUBMIT I KNOW YOU GOT SOME
