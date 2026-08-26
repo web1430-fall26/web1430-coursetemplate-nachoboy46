@@ -2,9 +2,9 @@ Xx# WEB 1430 – Course Repository
 
 This is your personal repository for **WEB 1430: Client-Side Web Development** at Weber State University. Every lab, assignment, and project this semester is committed to this repository and pushed to GitHub — it is the record of your work for the course.
 
-**Student:** *(your name — adding it here is part of your first commit in Lab 00)*
+**Student:** *(Ammon Harris)*
 
-**Course goal:** *(one sentence about what you want to get out of this course)*
+**Course goal:** *(I want to get familiar with javascript, because I don't know it super duper well, and I also want to learn git a bit, because it seems really cool and useful now that I've used it a bit.)*
 
 ## Repository structure
 
