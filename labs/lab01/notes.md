@@ -2,11 +2,11 @@
 
 | Tag | Semantic? | Purpose |
 |-----|-----------|---------|
-| <Div>|	No |        It advertises the websites patreon to the user |
-| <Footer> |  Yes	| It adds footer at the bottom of the page with some info |
-| <Header> | Yes |	It adds the header at the top of the page that has some tabs and links and stuff in it  |
-| <Main> |  Yes	|	It contains the brunt of all elements on the webage and a bunch of subtags, almost everything you can see on the page is in main. |
-| <Div> |  No | This one is a little bit more clear than the previous div, because it has 'class="deckheader-wrapper"' and the previous one was just giberish, but div in nature is still non-semantic. |
+| Div|	No |        It advertises the websites patreon to the user |
+| Footer |  Yes	| It adds footer at the bottom of the page with some info |
+| Header | Yes |	It adds the header at the top of the page that has some tabs and links and stuff in it  |
+| Main |  Yes	|	It contains the brunt of all elements on the webage and a bunch of subtags, almost everything you can see on the page is in main. |
+| Div |  No | This one is a little bit more clear than the previous div, because it has 'class="deckheader-wrapper"' and the previous one was just giberish, but div in nature is still non-semantic. |
 ### Live text edit
 [Describe what you changed and paste a screenshot reference here]
 I changed the text in the patreon link from "" to "Support us on Patreon to summon
@@ -54,11 +54,11 @@ image/webp
 
 | Tag | Semantic? | Purpose |
 |-----|-----------|---------|
-|<Head> |Yes |This tag contains some important metadata for the website |
-|<Div> |No |This is a divider for the header of the webiste. they didn't use a traditional header tag like the previous site. |
-|<body> |Yes |This contains the bulk of the websites content and other tags |
-|<div> |No |This is the pag container, it contains all the text and stuff from the page and the other link tags |
-|<a> |yes |This is a link to a magezine on eggs |
+|Head |Yes |This tag contains some important metadata for the website |
+|Div |No |This is a divider for the header of the webiste. they didn't use a traditional header tag like the previous site. |
+|body |Yes |This contains the bulk of the websites content and other tags |
+|div |No |This is the pag container, it contains all the text and stuff from the page and the other link tags |
+|a |yes |This is a link to a magezine on eggs |
 
 ### Console results
 
