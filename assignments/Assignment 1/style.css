@@ -1,0 +1,39 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #ff0000;
+    --text-color: #ffffff;
+    --accent-color: #00ff00;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    padding: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    article {
+        flex: 1 1 300px;
+    }
+}
