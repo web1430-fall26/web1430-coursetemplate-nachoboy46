@@ -109,6 +109,8 @@ S.L.
 
 
 
+
+
 ammonharris@Ammons-MacBook-Pro lab03 % node debug.js
 
 Hi Casey! You are 28 years old. Next year you will be 29 years old.
