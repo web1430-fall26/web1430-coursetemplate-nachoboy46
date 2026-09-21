@@ -1,8 +1,8 @@
-#Notes for Lab 3
+# Notes for Lab 3
 
-##Console Experiments
+## Console Experiments
 
-###Excercise 1
+### Excercise 1
 '5' + 3
 I got ‘53’ because javascript concatenates strings and numbers by converting the number to a string and then combing the two strings.
 
@@ -27,7 +27,7 @@ This is true, for the same reason as 0 == false and ‘5’ == true.
 null === undefined
 This is false because null is an intentionally absent value and different from undefined, which isn’t directly set like null.
 
-###Exercise 2
+### Exercise 2
 typeof ‘hello’
 This outputs ‘string’.
 
@@ -64,7 +64,7 @@ This outputs ‘hello JavaScript’, I imagine this functions similarly to the .
 ‘hello’.length
 This returns the number 5. Notably, this doesn’t have parenthesis, meaning it’s an attribute and not a function.
 
-##Debugging
+## Debugging
 I found a four bugs in this section.
 The first one I saw was a typo in how year was spelled in the return statement, so I changed it from ${nextYeer} to ${nextYear}.
 The next one I saw was a missing semicolon after the const message = line, so I added that.
