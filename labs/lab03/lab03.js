@@ -6,7 +6,11 @@
 // If name is empty or only whitespace, returns "Hello, stranger!"
 
 function greet(name) {
-  // TODO
+  if(name.trim() !== ''){
+  	return `Hello, ${name}! Welcome to WEB 1430`;
+  } else {
+  	return "Hello, stranger!"
+  } 
 }
 
 console.log(greet('Jordan'));   // Expected: "Hello, Jordan! Welcome to WEB 1430."
@@ -19,7 +23,8 @@ console.log(greet(''));         // Expected: "Hello, stranger!"
 // Hint: number.toFixed(1) returns a string with one decimal place.
 
 function toFahrenheit(celsius) {
-  // TODO
+  const fahrenheit = (celsius * 9/5) + 32;
+  return `${fahrenheit.toFixed(1)}`;
 }
 
 console.log(toFahrenheit(0));     // Expected: "32.0°F"
@@ -33,7 +38,17 @@ console.log(toFahrenheit(-40));   // Expected: "-40.0°F"
 // Returns "invalid" if password is not a string or is empty
 
 function checkPassword(password) {
-  // TODO
+  if (typeof password === 'string' && password.trim() !== ''){
+  	if (password.length < 8){
+  		return 'weak';
+  	}else if(password.length >= 8 && password.length <= 12){
+  		return 'medium';
+  	}else{
+  		return 'strong';
+  	}
+  } else {
+  	return 'invalid';
+  }
 }
 
 console.log(checkPassword('abc'));               // Expected: "weak"
@@ -49,7 +64,17 @@ console.log(checkPassword(12345));               // Expected: "invalid"
 // Hint: .trim().split(' ') — filter out empty strings from double spaces.
 
 function getInitials(fullName) {
-  // TODO
+  let list =  fullName.trim().split(' ');
+  let output = '';
+  
+  for (let i = 0; i < list.length; i++){
+  	if (!(list[i].trim() === '')){
+  		output += list[i][0].toUpperCase();
+  		output += '.';
+  	}
+  }
+
+  return output;
 }
 
 console.log(getInitials('Jordan Smith'));          // Expected: "J.S."
