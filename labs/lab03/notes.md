@@ -75,25 +75,42 @@ At this point I ran the code, thinking it was good, but then I got an error. It 
 Okay, so I did this like mostly in console because I'm not super experienced on using and commiting to github inside of vscode.
 As such, this section is massive. I will first paste the results of the two sections, as I'm fairly certain that's all you care about,
 but if you want to see my entire workflow I'll paste that too. I'll put the really long section though after the reflection because it's
-just so massive
+just so massive. I added some enters to make the results show up better in github, but this is what I got.
 
 ammonharris@Ammons-MacBook-Pro lab03 % node lab03.js
+
 Hello, Jordan! Welcome to WEB 1430
+
 Hello, stranger!
+
 Hello, stranger!
+
 32.0
+
 212.0
+
 -40.0
+
 weak
+
 medium
+
 strong
+
 invalid
+
 invalid
+
 J.S.
+
 M.E.V.
+
 S.L.
 
+
+
 ammonharris@Ammons-MacBook-Pro lab03 % node debug.js
+
 Hi Casey! You are 28 years old. Next year you will be 29 years old.
 
 ## Process reflection
