@@ -7,7 +7,7 @@
 
 function greet(name) {
   if(name.trim() !== ''){
-  	return `Hello, ${name}! Welcome to WEB 1430`;
+  	return `Hello, ${name}! Welcome to WEB 1430.`;
   } else {
   	return "Hello, stranger!"
   } 
@@ -24,7 +24,7 @@ console.log(greet(''));         // Expected: "Hello, stranger!"
 
 function toFahrenheit(celsius) {
   const fahrenheit = (celsius * 9/5) + 32;
-  return `${fahrenheit.toFixed(1)}`;
+  return `${fahrenheit.toFixed(1)}°F`;
 }
 
 console.log(toFahrenheit(0));     // Expected: "32.0°F"
@@ -41,7 +41,7 @@ function checkPassword(password) {
   if (typeof password === 'string' && password.trim() !== ''){
   	if (password.length < 8){
   		return 'weak';
-  	}else if(password.length >= 8 && password.length <= 12){
+  	}else if(password.length < 12){
   		return 'medium';
   	}else{
   		return 'strong';
@@ -64,7 +64,7 @@ console.log(checkPassword(12345));               // Expected: "invalid"
 // Hint: .trim().split(' ') — filter out empty strings from double spaces.
 
 function getInitials(fullName) {
-  let list =  fullName.trim().split(' ');
+  const list =  fullName.trim().split(' ');
   let output = '';
   
   for (let i = 0; i < list.length; i++){

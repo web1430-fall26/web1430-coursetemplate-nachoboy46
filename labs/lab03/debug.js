@@ -4,7 +4,7 @@
 // In notes.md, record: the line number, what was wrong, and what the error message said.
 
 const userName = 'Casey';
-const userAge = '28';
+const userAge = 28;
 
 function buildWelcome(name, age) {
   const numericAge = parseInt(age);
