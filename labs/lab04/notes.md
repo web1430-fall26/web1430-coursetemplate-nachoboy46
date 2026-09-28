@@ -1,4 +1,4 @@
-#NOTES
+# NOTES
 
 One guard clause I used was on the increment selection thing, making it so it had to be at least 0.1. Without that
 clause, the user was able to select really small and weird values, and that just made it ugly.
