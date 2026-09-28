@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>Meal Splitter</title>
+    <script defer src="code.js"></script>
+</head>
+<body>
+    <section>
+        <form>
+            <div>
+                <label for = "eaters">Number of eaters:</label>
+                <input type = "number" id = "eaters" name = "numberOfEaters" placeholder = "How many guests participated in the meal?" aria-describedby="errorMessage">
+            </div>
+            <div>
+                <label for = "baseCost">Cost before tip:</label>
+                <input type = "number" id = "baseCost" name = "costBeforeTip" placeholder = "How much was the base cost of the meal?" aria-describedby="errorMessage">
+            </div>
+            <div>
+                <label for = "tip">Tip Percentage:</label>
+                <input type = "number" id = "tip" name = "tipPercentage" placeholder = "What percent tip did you leave?" aria-describedby="errorMessage">
+            </div>
+            <button type = "button" id = "calculateButton">Calculate</button>
+        </form>-
+        <p id="errorMessage" style="color: red;"></p>
+    </section>
+
+    <section aria-live = "polite">
+        <h2>Price per eater:</h2>
+        <p id="eaterOutputAmount">Hit calculate to get the correct amount</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,13 @@
+ <script>
+        const button = docucuement.getElementById('calculateButton');
+        const eaterOutputAmount = document.getElementById('eaterOutputAmount');
+
+        button.addEventListener('click', function() {//Meal total is in a number formatted XX.XX, tip percentage is a number formated XX, number of people is a non-zero and non-negative integer
+            const eatersVar = parseFloat(document.getElementById(eaters));
+            const baseCostVar = parseFloat(document.getElementById(baseCost));
+            const tipVar= parseFloat(document.getElementById(tip));
+            
+            const actualTotal = mealTotal * (1 + (tipPercentage/100));
+            eaterOutputAmount.textContent = `Each person owes ${(actualTotal/numberOfPeople).toFixed(2)}.`;
+        });
+    </script>
