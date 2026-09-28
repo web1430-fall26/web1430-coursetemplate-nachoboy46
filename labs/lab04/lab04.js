@@ -67,12 +67,30 @@ function findTrail(level, maxDistance, maxHours) {
 // Use createElement + textContent — no innerHTML.
 function renderRecommendation(trail) {
   recommendationDiv.innerHTML = ''; // clear previous result
-  
+  if(trail === null){
+    recommendationDiv.innerHTML = 'No trail matches your criteria. Try adjusting your distance or time.'
+  } else {
+    recommendationDiv.innerHTML = `Trail found! Trail name: ${trail.name} | Trail Distance: ${trail.distance} miles | Trail duration: ${trail.hours} hours | Trail difficulty: ${trail.level}`
+  }
 }
 
 // Button handler
 findBtn.addEventListener('click', () => {
   // TODO: read values → validate → findTrail → renderRecommendation
+  const levelVar = document.getElementById('experience');
+  const distanceVar = document.getElementById("max-distance");
+  const hoursVar = document.getElementById("max-hours");
+
+  const validtionOutput = validateInputs(levelVar.value, distanceVar.value, hoursVar.value);
+
+  if(validtionOutput !== null){
+    recommendationDiv.innerHTML = validtionOutput;
+    return;
+  }
+
+  const trail = findTrail(levelVar.value, distanceVar.value, hoursVar.value);
+
+  renderRecommendation(trail);
 });
 
 // ─── Part 4: Distance converter functions ────────────────────────────────
@@ -80,7 +98,7 @@ findBtn.addEventListener('click', () => {
 // milesToKm(miles)
 // Returns miles converted to kilometers (miles × 1.60934), rounded to 2 decimal places.
 function milesToKm(miles) {
-  // TODO
+  return (miles * 1.60934).toFixed(2);
 }
 
 // renderTable(increment, rows)
@@ -89,8 +107,24 @@ function milesToKm(miles) {
 // Renders into tableOutputDiv.
 function renderTable(increment, rows) {
   tableOutputDiv.innerHTML = ''; // clear previous result
-  // TODO
+  output = "";
+  if (rows < 1 || rows > 20){
+    tableOutputDiv.innerHTML = 'ERROR: Table can only render between 1 and 20 rows.'
+    return;
+  }
+
+  if (increment < 0.1){
+    tableOutputDiv.innerHTML = 'ERROR: Increment amount must be at least 0.1.'
+    return;
+  } 
+
+  for(let i = increment; i < increment*(rows+1); i += increment){
+    output += `${i} Miles : ${milesToKm(i)} Kilometers <br>`;
+    //output.push([i,milesToKm(i)]);
+  }
+  tableOutputDiv.innerHTML = output;
 }
+  
 
 generateBtn.addEventListener('click', () => {
   const increment = parseFloat(incrementInput.value);
