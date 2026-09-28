@@ -30,13 +30,34 @@ const tableOutputDiv  = document.getElementById('table-output');
 //        maxDistance must be 1–20
 //        maxHours must be 1–8
 function validateInputs(level, maxDistance, maxHours) {
-  // TODO
+  if (isNaN(maxDistance) || isNaN(maxHours)){
+        return 'ERROR: Hours or distance input is not numeric.'
+    }
+    if (level !== 'beginner' && level !== 'intermediate' && level !== 'advanced'){
+        return 'ERROR: Level must be beginner, intermediate, or advanced.'
+    }
+    if (maxHours < 1 || maxHours > 8){
+        return 'ERROR: Hours must be greater than 1 and less than 8.'
+    }
+    if (maxDistance < 1 || maxDistance > 20){
+        return 'ERROR: Distance must be greater than 1 and less than 20.'
+    }
+    return null;
 }
 
 // findTrail(level, maxDistance, maxHours)
 // Returns the first trail matching all three criteria, or null if none match.
 function findTrail(level, maxDistance, maxHours) {
-  // TODO
+  for(let i = 0; i < trails.length; i++){
+    if (trails[i].level === level){
+      if(trails[i].distance <= maxDistance){
+        if (trails[i].hours <= maxHours){
+          return trails[i];
+        }
+      }
+    }
+  }
+  return null;
 }
 
 // renderRecommendation(trail)
@@ -46,7 +67,7 @@ function findTrail(level, maxDistance, maxHours) {
 // Use createElement + textContent — no innerHTML.
 function renderRecommendation(trail) {
   recommendationDiv.innerHTML = ''; // clear previous result
-  // TODO
+  
 }
 
 // Button handler
