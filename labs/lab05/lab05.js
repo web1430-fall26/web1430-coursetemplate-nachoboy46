@@ -42,7 +42,7 @@ function sortByPrice(productList, direction){
         return parseFloat(b.price) - parseFloat(a.price);
     }
 
-    copy = productList.slice();
+    const copy = productList.slice();
 
     if(direction === 'asc'){
         return copy.sort(compareAsc);
@@ -62,11 +62,6 @@ function renderProductCard(product){
     productHeader.textContent = product.name;
     card.appendChild(productHeader);
 
-    const productID = document.createElement('p');
-    productID.className = 'Product ID';
-    productID.textContent = product.price;
-    card.appendChild(productID);
-
     const productCategory = document.createElement('p');
     productCategory.className = 'product-category';
     productCategory.textContent = product.category;
@@ -74,7 +69,7 @@ function renderProductCard(product){
 
     const productPrice = document.createElement('p');
     productPrice.className = 'product-price';
-    productPrice.textContent = product.price;
+    productPrice.textContent = formatPrice(product.price);
     card.appendChild(productPrice);
 
     const stock = document.createElement('span');
@@ -109,7 +104,7 @@ function renderProductList(productList, container){
     }
 
     for(let i = 0; i < productList.length; i++){
-        const card = makeCard(productList[i]);
+        const card = renderProductCard(productList[i]);
         container.appendChild(card);
     }
 }
@@ -130,3 +125,30 @@ function renderCategoryFilter(categories, container){
 
     container.appendChild(selectThing);
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    function updateDisplay() {
+        const selectedCategory = categorySelect.value;
+        const selectedSort = sortSelectElement.value;
+
+        const filtered = filterByCategory(products, selectedCategory);
+        const sorted = sortByPrice(filtered, selectedSort);
+
+        renderProductList(sorted, productGridElement);
+    }
+
+    const filterElement = document.getElementById('filter-bar');
+    const sortSelectElement = document.getElementById('sort-order');
+    const productGridElement = document.getElementById('product-grid');
+
+    const categories = getCategories(products);
+    renderCategoryFilter(categories,filterElement);
+
+    const categorySelect = filterElement.querySelector('select');
+
+    categorySelect.addEventListener('change', updateDisplay);
+    sortSelectElement.addEventListener('change', updateDisplay);
+
+    updateDisplay();
+});
