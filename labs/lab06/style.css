@@ -1,0 +1,7 @@
+[role="tabpanel"][hidden] {
+  display: none;
+}
+[role="tab"][aria-selected="true"] {
+  font-size: 20 pt;
+  color: RED;
+}

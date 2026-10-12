@@ -1,0 +1,3 @@
+# Lab Six
+
+Event delegation is good because it's more scaleable. If I had to make a different event reader for each possible click I would've had 9 on this one tiny page alone, but because I had on listener for each of the parent things I only had two, which is so much better. Aria-expanded is meant to help with screen reading, it helps them navigate the screen easier and understand what's going on on the webpage. Display none completely removes the object from the the "visual layout", which is bad design I just found out. If I were going to extend this I would problem change my innerfunctions up a bit to make them look more professional with the cool shortcut things, but I just find them really confusing right now and I don't think I'm ready for anything crazy yet.
