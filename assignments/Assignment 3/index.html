@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Assignment 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>DOM Pattern Library</h1>
+
+        <section class = "faq">
+            <h2>Accordian</h2>
+            <div class="faq-item">
+                <button class="faq-question" id="faq-item-1" aria-expanded="false" aria-controls="faq-answer-1">
+                    Where's waldo?
+                </button>
+                <div class="faq-answer" id="faq-answer-1" hidden>
+                    <p>Waldo is a concept we created as a society. He is omnipresent.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" id="faq-item-2" aria-expanded="false" aria-controls="faq-answer-2">
+                    Why are trees good?
+                </button>
+                <div class="faq-answer" id="faq-answer-2" hidden>
+                    <p>They convert carbon monoxide back into breathable oxygen, and they are a renewable source of building material.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" id="faq-item-3" aria-expanded="false" aria-controls="faq-answer-3">
+                    How much does a gallon of gas cost?
+                </button>
+                <div class="faq-answer" id="faq-answer-3" hidden>
+                    <p>Too much. Like 4 and a half bucks or something. It changes way too much to pin down.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" id="faq-item-4" aria-expanded="false" aria-controls="faq-answer-4">
+                    Why is soap actually bad for your skin?
+                </button>
+                <div class="faq-answer" id="faq-answer-4" hidden>
+                    <p>It isn't. Unless you use a really weird type of soap made out of acid or something.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="tabs-section">
+            <h2>Testing Tabs</h2>
+            <div class="tab-list" role="tablist" aria-label="Tab Scroller Thing">
+                <button role="tab" aria-selected="true" aria-controls="panel-spaghetti" id="tab-spaghetti">Spaghetti</button>
+                <button role="tab" aria-selected="false" aria-controls="panel-lasagna" id="tab-lasagna">Lasagna</button>
+                <button role="tab" aria-selected="false" aria-controls="panel-doubleSpaghetti" id="tab-doubleSpaghetti">Double Spaghetti</button>
+                <button role="tab" aria-selected="false" aria-controls="panel-cornDogs" id="tab-cornDogs">Corndogs</button>
+                
+                <div role="tabpanel" id="panel-spaghetti" aria-labelledby="tab-spaghetti">
+                    <h3>How to cook spaghetti</h3>
+                    <p>Cook the spaghettia noodles and then throw some tomato sauce on it. Then eat it. Garlic bread is reccomended.</p>
+                </div>
+            
+                <div role="tabpanel" id="panel-lasagna" aria-labelledby="tab-lasagna">
+                    <h3>How to cook spaghetti</h3>
+                    <p>By some lasagna noodles from costco, layer it in a pan with tomato sauce, try to cook it, fail, cook a premade frozen lasagna instead.</p>
+                </div>
+
+                <div role="tabpanel" id="panel-doubleSpaghetti" aria-labelledby="tab-doubleSpaghetti">
+                    <h3>How to cook spaghetti</h3>
+                    <p>Make spaghetti but twice. Garlic bread double reccomeneded.</p>
+                </div>
+
+                <div role="tabpanel" id="panel-cornDogs" aria-labelledby="tab-cornDogs">
+                    <h3>How to cook spaghetti</h3>
+                    <p>Buy some corndogs and put them in the airfryer.</p>
+                </div>
+        </section>
+        
+    </main>
+
+    <script src="assignment3.js" defer></script>
+</body>
+</html>
