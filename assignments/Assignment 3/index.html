@@ -10,39 +10,55 @@
     <main>
         <h1>DOM Pattern Library</h1>
 
-        <section class = "faq">
+        <nav>
+            <a href="#accordion-section">FAQ</a>
+            <a href="#tabs-section">Tabs Section</a>
+            <a href="#search-section">Search Section</a>
+        </nav>
+
+        <section class = "faq" id="accordion-section">
             <h2>Accordian</h2>
             <div class="faq-item">
-                <button class="faq-question" id="faq-item-1" aria-expanded="false" aria-controls="faq-answer-1">
-                    Where's waldo?
-                </button>
+                
+                <div class="faq-item">
+                <h3>
+                    <button class="faq-question" id="faq-item-1" aria-expanded="false" aria-controls="faq-answer-1">
+                        Where's waldo?
+                    </button>
+                </h3>
                 <div class="faq-answer" id="faq-answer-1" hidden>
                     <p>Waldo is a concept we created as a society. He is omnipresent.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" id="faq-item-2" aria-expanded="false" aria-controls="faq-answer-2">
-                    Why are trees good?
-                </button>
+                <h3>
+                    <button class="faq-question" id="faq-item-2" aria-expanded="false" aria-controls="faq-answer-2">
+                        Why are trees good?
+                    </button>
+                </h3>
                 <div class="faq-answer" id="faq-answer-2" hidden>
                     <p>They convert carbon monoxide back into breathable oxygen, and they are a renewable source of building material.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" id="faq-item-3" aria-expanded="false" aria-controls="faq-answer-3">
-                    How much does a gallon of gas cost?
-                </button>
+                <h3>
+                    <button class="faq-question" id="faq-item-3" aria-expanded="false" aria-controls="faq-answer-3">
+                        How much does a gallon of gas cost?
+                    </button>
+                </h3>
                 <div class="faq-answer" id="faq-answer-3" hidden>
                     <p>Too much. Like 4 and a half bucks or something. It changes way too much to pin down.</p>
                 </div>
             </div>
 
             <div class="faq-item">
-                <button class="faq-question" id="faq-item-4" aria-expanded="false" aria-controls="faq-answer-4">
-                    Why is soap actually bad for your skin?
-                </button>
+                <h3>
+                    <button class="faq-question" id="faq-item-4" aria-expanded="false" aria-controls="faq-answer-4">
+                        Why is soap actually bad for your skin?
+                    </button>
+                </h3>
                 <div class="faq-answer" id="faq-answer-4" hidden>
                     <p>It isn't. Unless you use a really weird type of soap made out of acid or something.</p>
                 </div>
@@ -58,7 +74,7 @@
                 <button role="tab" aria-selected="false" aria-controls="panel-doubleSpaghetti" id="tab-doubleSpaghetti">Double Spaghetti</button>
                 <button role="tab" aria-selected="false" aria-controls="panel-cornDogs" id="tab-cornDogs">Corndogs</button>
                 
-                <div role="tabpanel" id="panel-spaghetti" aria-labelledby="tab-spaghetti" hidden>
+                <div role="tabpanel" id="panel-spaghetti" aria-labelledby="tab-spaghetti">
                     <h3>How to cook Spaghetti</h3>
                     <p>Cook the spaghetti noodles and then throw some tomato sauce on it. Then eat it. Garlic bread is reccomended.</p>
                 </div>
@@ -77,10 +93,12 @@
                     <h3>How to cook Corn Dogs</h3>
                     <p>Buy some corndogs and put them in the airfryer.</p>
                 </div>
+            </div>
         </section>
 
-        <section class="list-section">
-            <h4 class="food-counter">Showing 8 of 8 items</h4>
+        <section class="list-section" id="search-section">
+            <h2>Search</h2>
+            <h4 class="food-counter" aria-live="polite">Showing 8 of 8 items</h4>
 
             <search>
                 <form action="/search" method="get">
@@ -92,7 +110,7 @@
 
             <ul class="food-list">
                 <li class="food-list-item" id="food-item-1">Yellow Potato</li>
-                <li class="food-list-item" id="food-item-2">Brow Potato</li>
+                <li class="food-list-item" id="food-item-2">Brown Potato</li>
                 <li class="food-list-item" id="food-item-3" >Cheese Soup</li>
                 <li class="food-list-item"id="food-item-4" >Bacon Soup</li>
                 <li class="food-list-item" id="food-item-5" >Pringle Soup</li>
@@ -100,6 +118,8 @@
                 <li class="food-list-item" id="food-item-7" >McChicken</li>
                 <li class="food-list-item" id="food-item-8" >Baked Potato</li>
             </ul>
+
+            <p class="empty-msg" id="no-results-message" hidden>No results</p>
         </section>
 
     </main>

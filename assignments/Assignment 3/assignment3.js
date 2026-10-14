@@ -82,12 +82,13 @@ function initTabs(tabsContainer){
     });
 }
 
-function initList(searchButton){
-    searchButton.addEventListener('click', function (event){
+function initFilter(searchButton){
+    searchButton.addEventListener('input', function (event){
         event.preventDefault();
         const listItems = document.querySelectorAll(".food-list-item");
         const searchBar = document.getElementById("food-search-input");
         const searchTerm = searchBar.value.trim();
+        const noResultsMsg = document.getElementById("no-results-message")
         let itemsShown = 0;
 
         console.log("Searching for term:", searchTerm);
@@ -96,7 +97,7 @@ function initList(searchButton){
             const itemText = item.textContent.trim();
             const shouldShow = itemText.toLowerCase().includes(searchTerm.toLowerCase());
 
-            console.log(`Item: "${itemText}" | Should show: ${shouldShow}`);
+            item.classList.toggle("hidden", !shouldShow);
 
             if(shouldShow || searchTerm === ""){
                 item.hidden = false;
@@ -108,10 +109,12 @@ function initList(searchButton){
 
         const foodCounter = document.querySelector(".food-counter");
         foodCounter.textContent = `Showing ${itemsShown} of 8 items`;
+
+        noResultsMsg.classList.toggle("hidden", itemsShown > 0);
     });
    
 }
 
 initFaq(document.querySelector(".faq"));
 initTabs(document.querySelector(".tabs-section"));
-initList(document.querySelector(".submit-search-button"));
+initFilter(document.getElementById("food-search-input"));
