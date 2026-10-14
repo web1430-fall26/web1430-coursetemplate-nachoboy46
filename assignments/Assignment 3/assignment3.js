@@ -40,7 +40,7 @@ function initTabs(tabsContainer){
         targetPanel.hidden = false;
     });
 
-    function setActiveTab(tabs, panel, newIndex){
+    function setActiveTab(tabs, newIndex){
         tabs.forEach(function(tab, i){
             const currentPanel = panels[i];
 
@@ -77,10 +77,41 @@ function initTabs(tabsContainer){
 
         if(next !== null){
             event.preventDefault();
-            setActiveTab(tabs,panels,next);
+            setActiveTab(tabs,next);
         }
     });
 }
 
+function initList(searchButton){
+    searchButton.addEventListener('click', function (event){
+        event.preventDefault();
+        const listItems = document.querySelectorAll(".food-list-item");
+        const searchBar = document.getElementById("food-search-input");
+        const searchTerm = searchBar.value.trim();
+        let itemsShown = 0;
+
+        console.log("Searching for term:", searchTerm);
+
+        listItems.forEach(function (item){
+            const itemText = item.textContent.trim();
+            const shouldShow = itemText.toLowerCase().includes(searchTerm.toLowerCase());
+
+            console.log(`Item: "${itemText}" | Should show: ${shouldShow}`);
+
+            if(shouldShow || searchTerm === ""){
+                item.hidden = false;
+                itemsShown++;
+            } else {
+                item.hidden = true;
+            }
+        });
+
+        const foodCounter = document.querySelector(".food-counter");
+        foodCounter.textContent = `Showing ${itemsShown} of 8 items`;
+    });
+   
+}
+
 initFaq(document.querySelector(".faq"));
 initTabs(document.querySelector(".tabs-section"));
+initList(document.querySelector(".submit-search-button"));
