@@ -15,7 +15,7 @@ body{
 }
 
 .card-name  {
-    
+    font-size: 1.5rem;
 }
 
 .card-art{
@@ -23,14 +23,13 @@ body{
 }
 
 .card-mana-cost {
-    font-family: 'Mana', sans-serif;
     font-size: 1.5rem;
-    line-height: 1;
-    letter-spacing: 2px; /* Adds small gaps between the symbols */
+    display: inline-flex;
+    gap: 3px; /* Adds nice spacing between symbols */
 }
 
 .card-type{
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 

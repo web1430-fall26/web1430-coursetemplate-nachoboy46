@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section class="search-section">
+        <h2 class="search-label">Search</h2>
+        <search>
+            <form action="/search" method="get" id="search-form">
+                <input type="search" id="search-bar" placeholder="Search..." required>
+            </form>
+        </search>
+    </section>
+
     <article class="card" id="Command Tower">
         <h3 class = card-name>Command Tower</h3>
         <div>
@@ -22,6 +31,7 @@
         <div>
             <span class="card-text">{T}: Add one mana of any color in your commander’s color identity.</span>
         </div>
+    </article>
     
     <article class="card" id="Captain America, Living Legend">
         <h3 class = card-name>Captain America, Living Legend</h3>
@@ -29,7 +39,7 @@
             <img class = "card-art" src="art/captainAmericaLivingLegend.webp" alt="Captain America Living Legend card">
         </div>
         <div>
-            <span class="card-mana-cost">1wu</span>
+            <span class="card-mana-cost">{1}{W}{U}</span>
         </div>
         <div>
             <span class="card-type">Legendary Creature - Human Soldier Hero</span>
@@ -38,7 +48,6 @@
             <span class="card-text">Vigilance
 Whenever a creature you control becomes tapped during your turn, if it’s the first time that creature has become tapped this turn, untap it.</span>
         </div>
-        
     </article>
 
     <script src="project01.js" defer></script>
