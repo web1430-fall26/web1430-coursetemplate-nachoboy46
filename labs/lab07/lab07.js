@@ -74,11 +74,11 @@ nameInput.addEventListener('blur', function (event){
   }
 });
 emailInput.addEventListener('blur', function (event){
-  const error = validateName(nameInput.value);
+  const error = validateEmail(emailInput.value);
   if(error){
-    showError(nameInput,error);
+    showError(emailInput,error);
   } else {
-    clearError(nameInput);
+    clearError(emailInput);
   }
 });
 
@@ -149,7 +149,6 @@ form.addEventListener('submit', function (event){
   form.hidden = true;
   confirmation.hidden = false;
   confirmation.focus();
-  
 });
 
 

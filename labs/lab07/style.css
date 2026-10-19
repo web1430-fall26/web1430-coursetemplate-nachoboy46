@@ -1,0 +1,15 @@
+.error-msg{
+    font-size: 40%;
+    color: red;
+}
+
+
+*:focus-visible{
+    outline: green;
+    outline-offset: 4px;
+}
+
+.input-error{
+    border-color: red;
+    border-width: 5px;
+}

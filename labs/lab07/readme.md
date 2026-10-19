@@ -1,0 +1,5 @@
+#Lab Notes
+
+The difference between input and blur is input triggers whenever an element recieves any input, but blur just triggers when it loses focus. Blur is better for validation because it avoids uncecessary checks and is less annoying for the user.
+aria-describedby works with the backtick strings to allow for one function to display and clear errors, so that instead of needing a whole bunch of ifs or like 12 different functions, we only need two simple functions.
+When the form first opens for me, it is not automatically focused. To focus this, I need to tab to the first section. At this point, and can just fill it out and use either enter or tab to move to the next focus point. In order to get the focus to the correct position after submitting, I had to create a custom function that checked where it should be and put it there.
