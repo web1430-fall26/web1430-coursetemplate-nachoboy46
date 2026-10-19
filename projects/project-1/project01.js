@@ -40,8 +40,10 @@ function initSearchBar(searchBar){
             const cardName = nameElement.textContent.toLocaleLowerCase();
             if(cardName.includes(searchTerm)){
                 card.style.display = "block";
+                card.setAttribute("aria-hidden","false");
             } else {
                 card.style.display = "none";
+                card.setAttribute("aria-hidden","true");
             }
         });
     });
