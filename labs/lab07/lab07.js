@@ -64,8 +64,95 @@ function clearError(inputEl) {
 // TODO: Add blur listeners for nameInput and emailInput.
 // Show the error if invalid, clear it if valid.
 
+
+nameInput.addEventListener('blur', function (event){
+  const error = validateName(nameInput.value);
+  if(error){
+    showError(nameInput,error);
+  } else {
+    clearError(nameInput);
+  }
+});
+emailInput.addEventListener('blur', function (event){
+  const error = validateName(nameInput.value);
+  if(error){
+    showError(nameInput,error);
+  } else {
+    clearError(nameInput);
+  }
+});
+
+
 // ─── Part 4b: Submit handler ──────────────────────────────────────────────
 // TODO: Add a submit listener to `form`.
+
+
+form.addEventListener('submit', function (event){
+  event.preventDefault();
+
+  let firstErrororedInput = null;
+
+  const nameError = validateName(nameInput.value);
+  if (nameError){
+    showError(nameInput, nameError);
+    firstErrororedInput = nameInput;
+  } else {
+    clearError(nameInput);
+  }
+
+  const emailError = validateEmail(emailInput.value);
+  if (emailError){
+    showError(emailInput, emailError);
+    if(!firstErrororedInput){
+      firstErrororedInput = emailInput;
+    }
+  } else {
+    clearError(emailInput);
+  }
+
+  const phoneError = validatePhone(phoneInput.value);
+  if (phoneError){
+    showError(phoneInput, phoneError);
+    if(!firstErrororedInput){
+      firstErrororedInput = phoneInput;
+    }
+  } else {
+    clearError(phoneInput);
+  }
+
+  const studentIdError = validateStudentId(studentIdInput.value);
+  if (studentIdError){
+    showError(studentIdInput, studentIdError);
+    if(!firstErrororedInput){
+      firstErrororedInput = studentIdInput;
+    }
+  } else {
+    clearError(studentIdInput);
+  }
+
+  const eventSelectorError = validateEvent(eventSelect.value);
+  if (eventSelectorError){
+    showError(eventSelect, eventSelectorError);
+    if(!firstErrororedInput){
+      firstErrororedInput = eventSelect;
+    }
+  } else {
+    clearError(eventSelect);
+  }
+
+  if(firstErrororedInput){
+    firstErrororedInput.focus();
+    return;
+  }
+
+  confirmDetails.textContent = `${nameInput.value.trim()} is registered for ${eventSelect.options[eventSelect.selectedIndex].text}.`
+  form.hidden = true;
+  confirmation.hidden = false;
+  confirmation.focus();
+  
+});
+
+
 // 1. event.preventDefault()
 // 2. Validate all five required fields
 // 3. Show errors on invalid fields; clear errors on valid fields
