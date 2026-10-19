@@ -32,3 +32,4 @@ This is attached seperatly in the folder
 I will have alts for every image, and I will avoid using generic elements like <div> when possible to help keyboard users. I will make it so
 keyboard users can tab up to the search bar so they can use it without clicking on it, allow them to switch pages without clicking on the 
 numbers at the bottom, and allow them to filter color identity without needing to click on the symbols with their mouse.
+I will use "aria-current'page'" to keep track of the active page, and I will use aria-pressed='true' to keep track of what is currently selected on the color identity filters. I will use aria-live="polite" to stop not interupt the user, and I will use focus() to all the user to select what input field they want to edit and make changes to it.
