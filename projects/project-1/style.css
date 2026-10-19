@@ -1,0 +1,40 @@
+html{
+    font-size: 16px
+}
+
+@font-face {
+    font-family: 'Ovo';
+    src: url('fonts/Ovo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    font-family: "Ovo";
+}
+
+.card-name  {
+    
+}
+
+.card-art{
+    width:250px;
+}
+
+.card-mana-cost {
+    font-family: 'Mana', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: 2px; /* Adds small gaps between the symbols */
+}
+
+.card-type{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text{
+    display: inline-block;
+    max-width: 350px;
+}

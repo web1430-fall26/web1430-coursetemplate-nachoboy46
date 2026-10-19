@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic The Gathering Awesomeness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <article class="card" id="Command Tower">
+        <h3 class = card-name>Command Tower</h3>
+        <div>
+            <img class = "card-art" src="art/commandTower.jpg" alt="Command Tower Card">
+        </div>
+        <div>
+            <span class="card-mana-cost">{1}{W}{U}</span>
+        </div>
+        <div>
+            <span class="card-type">Land</span>
+        </div>
+        <div>
+            <span class="card-text">{T}: Add one mana of any color in your commander’s color identity.</span>
+        </div>
+    
+    <article class="card" id="Captain America, Living Legend">
+        <h3 class = card-name>Captain America, Living Legend</h3>
+        <div>
+            <img class = "card-art" src="art/captainAmericaLivingLegend.webp" alt="Captain America Living Legend card">
+        </div>
+        <div>
+            <span class="card-mana-cost">{1}{W}{U}</span>
+        </div>
+        <div>
+            <span class="card-type">Legendary Creature - Human Soldier Hero</span>
+        </div>
+        <div>
+            <span class="card-text">Vigilance
+Whenever a creature you control becomes tapped during your turn, if it’s the first time that creature has become tapped this turn, untap it.</span>
+        </div>
+        
+    </article>
+
+    <script src="project01.js" defer></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+</body>
+</html>

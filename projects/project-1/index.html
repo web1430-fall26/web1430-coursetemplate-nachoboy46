@@ -4,13 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magic The Gathering Awesomeness</title>
+    <link href="https://cdn.jsdelivr.net/npm/mana-font@1.4.1/css/mana.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <article class="card">
+    <article class="card" id="Command Tower">
         <h3 class = card-name>Command Tower</h3>
-        <img class = "card-art">
-
+        <div>
+            <img class = "card-art" src="art/commandTower.jpg" alt="Command Tower Card">
+        </div>
+        <div>
+            <span class="card-mana-cost hidden"></span>
+        </div>
+        <div>
+            <span class="card-type">Land</span>
+        </div>
+        <div>
+            <span class="card-text">{T}: Add one mana of any color in your commander’s color identity.</span>
+        </div>
+    
+    <article class="card" id="Captain America, Living Legend">
+        <h3 class = card-name>Captain America, Living Legend</h3>
+        <div>
+            <img class = "card-art" src="art/captainAmericaLivingLegend.webp" alt="Captain America Living Legend card">
+        </div>
+        <div>
+            <span class="card-mana-cost">1wu</span>
+        </div>
+        <div>
+            <span class="card-type">Legendary Creature - Human Soldier Hero</span>
+        </div>
+        <div>
+            <span class="card-text">Vigilance
+Whenever a creature you control becomes tapped during your turn, if it’s the first time that creature has become tapped this turn, untap it.</span>
+        </div>
+        
     </article>
 
     <script src="project01.js" defer></script>
