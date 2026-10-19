@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #B31942;
+    --font-main: 'Ovo', serif;
+    --card-width: 250px;
+    --spacing-md: 20px;
+}
+
 html{
     font-size: 16px
 }
@@ -6,6 +13,15 @@ html{
 header{
     background-color: #B31942;
     padding: 20px;
+}
+
+.search-section{
+    background-color: #002868;
+    padding: 20px;
+}
+
+.search-label{
+    color: white;
 }
 
 @font-face {
@@ -26,7 +42,7 @@ main{
     padding: 20px;
 }
 
-.card-name  {
+h3{
     font-size: 1.5rem;
 }
 
