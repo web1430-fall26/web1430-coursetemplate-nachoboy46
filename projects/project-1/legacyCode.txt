@@ -1,0 +1,150 @@
+<article class="card" id="Command Tower" aria-hidden="false">
+            <h3 class = "card-name">Command Tower</h3>
+            <div>
+                <img class = "card-art" src="art/commandTower.jpg" alt="Command Tower Card">
+            </div>
+            <div>
+                <span class="card-mana-cost hidden"></span>
+            </div>
+            <div>
+                <span class="card-type">Land</span>
+            </div>
+            <div>
+                <span class="card-text">{T}: Add one mana of any color in your commander’s color identity.</span>
+            </div>
+        </article>
+        
+        <article class="card" id="Captain America, Living Legend" aria-hidden="false">
+            <h3 class = "card-name">Captain America, Living Legend</h3>
+            <div>
+                <img class = "card-art" src="art/captainAmericaLivingLegend.webp" alt="Captain America Living Legend card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{1}{W}{U}</span>
+            </div>
+            <div>
+                <span class="card-type">Legendary Creature - Human Soldier Hero</span>
+            </div>
+            <div>
+                <span class="card-text">Vigilance
+    Whenever a creature you control becomes tapped during your turn, if it’s the first time that creature has become tapped this turn, untap it.</span>
+            </div>
+        </article>
+
+        <article class="card" id="Time Warp" aria-hidden="false">
+            <h3 class = "card-name">Time Warp</h3>
+            <div>
+                <img class = "card-art" src="art/timeWarp.webp" alt="Time Warp card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{3}{U}{U}</span>
+            </div>
+            <div>
+                <span class="card-type">Sorcery</span>
+            </div>
+            <div>
+                <span class="card-text">Target player takes an extra turn after this one.</span>
+            </div>
+        </article>
+
+        <article class="card" id="Lightning Greaves" aria-hidden="false">
+            <h3 class = "card-name">Lightning Greaves</h3>
+            <div>
+                <img class = "card-art" src="art/lightningGreaves.webp" alt="Lightning Greaves card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{2}</span>
+            </div>
+            <div>
+                <span class="card-type">Artifact — Equipment</span>
+            </div>
+            <div>
+                <span class="card-text">Equipped creature has haste and shroud. (It can’t be the target of spells or abilities.)
+    Equip {0}</span>
+            </div>
+        </article>
+
+        <article class="card" id="Full Throttle" aria-hidden="false">
+            <h3 class = "card-name">Full Throttle</h3>
+            <div>
+                <img class = "card-art" src="art/dft-127-full-throttle.webp" alt="Full Throttle card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{4}{R}{R}</span>
+            </div>
+            <div>
+                <span class="card-type">Sorcery</span>
+            </div>
+            <div>
+                <span class="card-text">After this main phase, there are two additional combat phases.
+    At the beginning of each combat this turn, untap all creatures that attacked this turn.</span>
+            </div>
+        </article>
+
+        <article class="card" id="Fireball" aria-hidden="false">
+            <h3 class = "card-name">Fireball</h3>
+            <div>
+                <img class = "card-art" src="art/clb-175-fireball.webp" alt="Fireball card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{X}{R}</span>
+            </div>
+            <div>
+                <span class="card-type">Sorcery</span>
+            </div>
+            <div>
+                <span class="card-text">This spell costs {1} more to cast for each target beyond the first.
+    Fireball deals X damage divided evenly, rounded down, among any number of targets.</span>
+            </div>
+        </article>
+
+        <article class="card" id="The One Ring" aria-hidden="false">
+            <h3 class = "card-name">The One Ring</h3>
+            <div>
+                <img class = "card-art" src="art/ltr-246-the-one-ring.webp" alt="The One Ring card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{4}</span>
+            </div>
+            <div>
+                <span class="card-type">Legendary Artifact</span>
+            </div>
+            <div>
+                <span class="card-text">Indestructible
+    When The One Ring enters, if you cast it, you gain protection from everything until your next turn.
+    At the beginning of your upkeep, you lose 1 life for each burden counter on The One Ring.
+    {T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Ring.</span>
+            </div>
+        </article>
+
+        <article class="card" id="Aladdin's Ring" aria-hidden="false">
+            <h3 class = "card-name">Aladdin's Ring</h3>
+            <div>
+                <img class = "card-art" src="art/9ed-286-aladdin-s-ring.webp" alt="Aladdin's Ring card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{8}</span>
+            </div>
+            <div>
+                <span class="card-type">Artifact</span>
+            </div>
+            <div>
+                <span class="card-text">{8}, {T}: This artifact deals 4 damage to any target.</span>
+            </div>
+        </article>
+
+        <article class="card" id="Blech, Loafing Pest" aria-hidden="false">
+            <h3 class = "card-name">Blech, Loafing Pest</h3>
+            <div>
+                <img class = "card-art" src="art/sos-176-blech-loafing-pest.webp" alt="Blech, Loafing Pest card">
+            </div>
+            <div>
+                <span class="card-mana-cost">{1}{B}{G}</span>
+            </div>
+            <div>
+                <span class="card-type">Legendary Creature — Pest</span>
+            </div>
+            <div>
+                <span class="card-text">Whenever you gain life, put a +1/+1 counter on each Pest, Bat, Insect, Snake, and Spider you control.</span>
+            </div>
+        </article>

@@ -46,22 +46,23 @@ h3{
     font-size: 1.5rem;
 }
 
-.card-art{
+.mtg-card-art{
     width:250px;
 }
 
-.card-mana-cost {
+.mtg-card-cost {
     font-size: 1.5rem;
     display: inline-flex;
     gap: 3px; /* Adds nice spacing between symbols */
 }
 
-.card-type{
+.mtg-card-type{
     font-size: 1.1rem;
     font-weight: bold;
 }
 
-.card-text{
+.mtg-card-text{
     display: inline-block;
     max-width: 350px;
+    white-space: pre-line;
 }
