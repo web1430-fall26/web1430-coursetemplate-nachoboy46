@@ -1,5 +1,6 @@
 :root {
     --primary-color: #B31942;
+    --secondary-color: #002868;
     --font-main: 'Ovo', serif;
     --card-width: 250px;
     --spacing-md: 20px;
@@ -11,13 +12,13 @@ html{
 
 
 header{
-    background-color: #B31942;
-    padding: 20px;
+    background-color: var(--primary-color);
+    padding: var(--spacing-md);
 }
 
 .search-section{
-    background-color: #002868;
-    padding: 20px;
+    background-color: var(--secondary-color);
+    padding: var(--spacing-md);
 }
 
 .search-label{
@@ -39,7 +40,7 @@ body{
 }
 
 main{
-    padding: 20px;
+    padding: var(--spacing-md);
 }
 
 h3{

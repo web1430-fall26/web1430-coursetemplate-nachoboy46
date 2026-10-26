@@ -1,28 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function(){
-//     const symbolMap = {
-//         '{1}': 'ms-1',
-//         '{W}': 'ms-w',
-//         '{U}': 'ms-u',
-//         '{B}': 'ms-b',
-//         '{R}': 'ms-r',
-//         '{G}': 'ms-g',
-//         '{T}': 'ms-t'
-//     }
-
-//     const elements = document.querySelectorAll(".card-mana-cost, .card-text");
-
-//     elements.forEach(function (el){
-//         let content = el.innerHTML;
-
-//         for(const text in symbols){
-//             let cssClass = sybmols[text];
-//             let replacement = `<i class="ms ${cssClass} ms-cost ms-shadow"></i>`;
-//             content = content.replaceAll(text, replacement);
-//         }
-//         el.innerHTML = content;
-//     });
-// });
-
 import * as Data from "./data.js";
 
 function renderCardSection(){
@@ -30,6 +5,31 @@ function renderCardSection(){
     card.className='prettyCard';
     
 
+}
+
+function renderColorSwatch(_colorName, _colorRGB){
+    const swatch = document.createElement('section');
+    swatch.style.width = '140px'
+    swatch.className="color-swatch";
+    swatch.style.background = '#BEBDB8';
+    swatch.style.textAlign = 'center';
+
+
+    const colorNameSpacer = document.createElement('div');
+    const colorName = document.createElement('h3');
+    colorNameSpacer.appendChild(colorName);
+    colorNameSpacer.style.margin = '3px';
+    colorName.innerText = _colorName;
+    swatch.appendChild(colorNameSpacer);
+
+    const swatchColor = document.createElement('div');
+    swatchColor.style.background = `#${_colorRGB}`;
+    swatchColor.style.width = '120px';
+    swatchColor.style.height = '60px';
+    swatchColor.style.display = 'inline-block';
+    swatch.appendChild(swatchColor);
+
+    return swatch;
 }
 
 function renderMtgCard(_cardName,_image,_cardType,_text,_cost=null){
@@ -166,8 +166,7 @@ function initSearchBar(searchBar){
 //     });
 // }
 
-initSearchBar(document.getElementById("search-bar"));
-initMtgCardButtons(document.getElementById('mtg-cards-section'));
+
 //initLinks(document.querySelector(".header-top-cards-list"));
 
 //card initialization
@@ -178,5 +177,11 @@ Data.cardsData.sort(function (a,b){
 Data.cardsData.forEach(function (cardData){
     document.getElementById('mtg-cards-section').appendChild(renderMtgCard(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
 });
+
+initSearchBar(document.getElementById("search-bar"));
+initMtgCardButtons(document.getElementById('mtg-cards-section'));
+
+const colorSwatchesSection = document.getElementById('color-swatches-section');
+colorSwatchesSection.appendChild(renderColorSwatch('AMERICA', 'B31942'))
 
 getValidCards();
