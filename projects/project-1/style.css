@@ -37,14 +37,23 @@ body{
     margin-top: 0;
     margin:0;
     font-family: "Ovo";
+    background-color: #232323;
+    color: #FFFFFF;
 }
 
 main{
     padding: var(--spacing-md);
+    background-color: 232323;
 }
 
 h3{
     font-size: 1.5rem;
+    max-width: var(--card-width);
+    min-height: 3.5rem;
+}
+
+.mtg-card-hidden-section{
+    max-width: var(--card-width);
 }
 
 .mtg-card-art{
@@ -53,7 +62,6 @@ h3{
 
 .mtg-card-cost {
     font-size: 1.5rem;
-    display: inline-flex;
     gap: 3px; /* Adds nice spacing between symbols */
 }
 
@@ -62,8 +70,19 @@ h3{
     font-weight: bold;
 }
 
-.mtg-card-text{
-    display: inline-block;
-    max-width: 350px;
-    white-space: pre-line;
+.color-swatches-section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: #000000;
+}
+
+.mtg-cards-section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+img{
+    border-radius: 12px
 }

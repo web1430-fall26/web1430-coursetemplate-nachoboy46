@@ -11,7 +11,7 @@ function renderColorSwatch(_colorName, _colorRGB){
     const swatch = document.createElement('section');
     swatch.style.width = '140px'
     swatch.className="color-swatch";
-    swatch.style.background = '#BEBDB8';
+    swatch.style.background = '#E0E0E0';
     swatch.style.textAlign = 'center';
 
 
@@ -182,6 +182,10 @@ initSearchBar(document.getElementById("search-bar"));
 initMtgCardButtons(document.getElementById('mtg-cards-section'));
 
 const colorSwatchesSection = document.getElementById('color-swatches-section');
-colorSwatchesSection.appendChild(renderColorSwatch('AMERICA', 'B31942'))
+colorSwatchesSection.appendChild(renderColorSwatch('Old Glory Red', 'B31942'))
+colorSwatchesSection.appendChild(renderColorSwatch('Old Glory Blue', '002868'))
+colorSwatchesSection.appendChild(renderColorSwatch('Black', '000000'))
+colorSwatchesSection.appendChild(renderColorSwatch('White', 'FFFFFF'))
+colorSwatchesSection.appendChild(renderColorSwatch('Carbon', '232323'))
 
 getValidCards();
