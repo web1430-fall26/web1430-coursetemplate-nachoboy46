@@ -83,7 +83,7 @@ function initShowCodeButton(showCodeButton){
     showCodeButton.addEventListener('click', function(event){
         if(event.target.matches('.show-code-button')){
             const codeSection = document.getElementById('code-section');
-            if(codeSection.getAttribute('aria-hidden') === 'true'){
+            if(codeSection.getAttribute('aria-hidden') === 'trueg'){
                 codeSection.hidden = false;
                 codeSection.setAttribute('aria-hidden','false');
             } else {
