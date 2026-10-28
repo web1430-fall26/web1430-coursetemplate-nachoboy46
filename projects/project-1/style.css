@@ -1,9 +1,17 @@
 :root {
     --primary-color: #B31942;
     --secondary-color: #002868;
+    --background-color: #232323;
+    --black: #000000;
+    --white: #FFFFFF;
     --font-main: 'Ovo', serif;
     --card-width: 250px;
     --spacing-md: 20px;
+    --font-size-large: 1.5rem;
+    --font-size-mediumLarge: 1.1rem;
+    --font-size-standard:1rem;
+    --font-size-small:0.75rem;
+
 }
 
 html{
@@ -22,7 +30,7 @@ header{
 }
 
 .search-label{
-    color: white;
+    color: var(--white);
 }
 
 @font-face {
@@ -37,8 +45,8 @@ body{
     margin-top: 0;
     margin:0;
     font-family: "Ovo";
-    background-color: #232323;
-    color: #FFFFFF;
+    background-color: var(--background-color);
+    color: var(--white);
 }
 
 main{
@@ -47,7 +55,7 @@ main{
 }
 
 h3{
-    font-size: 1.5rem;
+    font-size: var(--font-size-large);
     max-width: var(--card-width);
     min-height: 3.5rem;
 }
@@ -61,12 +69,12 @@ h3{
 }
 
 .mtg-card-cost {
-    font-size: 1.5rem;
+    font-size: var(--font-size-large);
     gap: 3px; /* Adds nice spacing between symbols */
 }
 
 .mtg-card-type{
-    font-size: 1.1rem;
+    font-size: var(--font-size-mediumLarge);
     font-weight: bold;
 }
 
@@ -74,7 +82,7 @@ h3{
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    color: #000000;
+    color: var(--black);
 }
 
 .mtg-cards-section{
@@ -85,4 +93,8 @@ h3{
 
 img{
     border-radius: 12px
+}
+
+blockquote{
+    background-color: var(--secondary-color);
 }

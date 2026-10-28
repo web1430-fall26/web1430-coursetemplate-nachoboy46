@@ -32,18 +32,204 @@
     </section>
 
     <main>
+        <section id="color-swatches-section" class="color-swatches-section">
+
+        </section>
+
         <section class="typography-section">
+            <blockquote><p>Quotes are an important part of modern website development. This is an example</p><cite>Albert Einstein.</cite></blockquote>
+
+            <div>
+                <h2>Unordered List Example:</h2>
+                <ul>
+                    <li>Spanish</li>
+                    <li>English</li>
+                    <li>French</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>Ordered List Example:</h2>
+                <ol>
+                    <li>Portuguese</li>
+                    <li>Afrikaans</li>
+                    <li>Mandarin</li>
+                </ol>
+            </div>
+            
+
+            <h1>h1 example: used for the site name.</h1>
+            <h2>h2 exmample: for seconadary sections, such as the search section</h2>
             <h3 class="card-name">h3 exmpale: used for card names. 1.5rem with a min height to make the card images align.</h3>
+            <h4>h4 example: not currently used in the website.</h4>
+            <p>Body paragraph example: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium vitae accusantium molestias, expedita voluptatum itaque, aliquid suscipit ad maxime tempore animi quis officiis? Ex rerum fuga, minima expedita porro error!</p>
             <span class ="card-mana-cost">Card mana cost exmple. A span with 1.5rem.</span><br>
             <span class="card-type">Card type exmaple. 1.1rem that is bolded.</span><br>
             <span class="card-text">Card text example. Standard settings, no adjustments needed.</span>
             <p style="max-width: 250px;">Max width: 250 pixels. Affects all listed above. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
+
+            <h3>Spacing Examples:</h3>
+
+
             <p>Font family: Ovo</p>
+
+            <h2>Code examples:</h2>
+            <section id="full-code-section">
+                <div id="code-section" aria-hidden="true" hidden>
+                    <pre><code>
+                        export function renderMtgCard(_cardName,_image,_cardType,_text,_cost=null){
+                            const mtgCard = document.createElement('article');
+                            mtgCard.className = "mtg-card";
+                            mtgCard.setAttribute("aria-hidden", "false");
+
+                            const cardHeader = document.createElement("h3");
+                            cardHeader.className = "mtg-card-name"
+                            cardHeader.textContent = _cardName;
+                            mtgCard.appendChild(cardHeader);
+
+                            const cardArtSpacer = document.createElement("div");
+                            const cardImage = document.createElement("img");
+                            cardArtSpacer.appendChild(cardImage);
+                            cardImage.className = "mtg-card-art";
+                            cardImage.src = _image;
+                            cardImage.alt = ("Image of the "+_cardName+" magic the gathering card");
+                            mtgCard.appendChild(cardArtSpacer);
+
+                            const hiddenSection = document.createElement("div");
+                            hiddenSection.className="mtg-card-hidden-section";
+                            hiddenSection.hidden = true;
+                            hiddenSection.setAttribute('aria-hidden','true');
+                            
+                            mtgCard.appendChild(hiddenSection);
+
+                            if(_cost){
+                                const cardCostSpacer = document.createElement("div");
+                                const cardCost = document.createElement("span");
+                                cardCostSpacer.appendChild(cardCost);
+                                cardCost.className = "mtg-card-cost"
+                                cardCost.textContent = _cost;
+                                hiddenSection.appendChild(cardCostSpacer);
+                            }
+                            
+                            const cardTypeSpacer = document.createElement("div");
+                            const cardType = document.createElement("span");
+                            cardTypeSpacer.appendChild(cardType);
+                            cardType.className = "mtg-card-type"
+                            cardType.textContent = _cardType;
+                            hiddenSection.appendChild(cardTypeSpacer);
+
+                            const cardTextSpacer = document.createElement('div');
+                            const cardText = document.createElement('p');
+                            cardTextSpacer.appendChild(cardText);
+                            cardText.className = "mtg-card-text"
+                            cardText.textContent = _text;
+                            hiddenSection.appendChild(cardTextSpacer);
+
+                            const button = document.createElement('button');
+                            button.className = "mtg-card-show-more-button";
+                            button.textContent = 'show more';
+                            mtgCard.appendChild(button);
+
+
+                            return mtgCard;
+                        }
+
+                        function initMtgCardButtons(cardsSection){
+                            cardsSection.addEventListener('click',function(event){
+                                if(event.target.matches('.mtg-card-show-more-button')){
+                                    const card = event.target.closest('.mtg-card');
+                                    const hiddenSection = card.querySelector('.mtg-card-hidden-section');
+                                    if(hiddenSection.getAttribute("aria-hidden") === "true"){
+                                        hiddenSection.hidden = false;
+                                        hiddenSection.setAttribute('aria-hidden', "false");
+                                    } else {
+                                        hiddenSection.hidden = true;
+                                        hiddenSection.setAttribute('aria-hidden', "true");
+                                    }
+                                }
+                            });
+                        }
+
+                        function getValidCards(){
+                            const cards = document.querySelectorAll(".mtg-card");
+                            cards.forEach(function (card){
+                                if(card.getAttribute("aria-hidden") === "false"){
+                                    console.log(card.querySelector(".mtg-card-name").textContent);
+                                }
+                            });
+                        }
+
+                        function searchCards(_searchTerm = null){
+                            const cards = document.querySelectorAll(".mtg-card");
+                            const searchBar = document.getElementById("search-bar");
+
+                            if(_searchTerm === ""){
+                                cards.forEach(function (card){
+                                    card.style.display = "block";
+                                    card.setAttribute("aria-hidden","false");
+                                    return;
+                                });
+                            }
+
+                            let searchTerm = null;
+                            if(!_searchTerm){
+                                searchTerm = searchBar.value.trim().toLowerCase();
+                            } else {
+                                searchTerm = _searchTerm;
+                            }
+                            
+                            
+                            cards.forEach(function (card){
+                                const nameElement = card.querySelector(".mtg-card-name");
+                                const cardName = nameElement.textContent.toLocaleLowerCase();
+                                if(cardName.includes(searchTerm)){
+                                    card.style.display = "block";
+                                    card.setAttribute("aria-hidden","false");
+                                } else {
+                                    card.style.display = "none";
+                                    card.setAttribute("aria-hidden","true");
+                                }
+                            });
+
+                            getValidCards();
+                        }
+
+                        function initSearchBar(searchBar){
+                            const searchForm = document.getElementById("search-form");
+                            searchForm.addEventListener("submit", function (event){
+                                event.preventDefault();
+                            });
+                            searchBar.addEventListener('input', function (event){
+                                event.preventDefault();
+                                searchCards();
+                            });
+                        }
+
+                        Data.cardsData.sort(function (a,b){
+                            return a.name.localeCompare(b.name); // the return is very important, remember that Ammon.
+                        });
+                        Data.cardsData.forEach(function (cardData){
+                            document.getElementById('mtg-cards-section').appendChild(Render.renderMtgCard(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
+                        });
+
+                        initSearchBar(document.getElementById("search-bar"));
+                        initMtgCardButtons(document.getElementById('mtg-cards-section'));
+
+                        const colorSwatchesSection = document.getElementById('color-swatches-section');
+                        colorSwatchesSection.appendChild(Render.renderColorSwatch('Old Glory Red', 'B31942', "--primary-color"))
+                        colorSwatchesSection.appendChild(Render.renderColorSwatch('Old Glory Blue', '002868', "--secondary-color"))
+                        colorSwatchesSection.appendChild(Render.renderColorSwatch('Black', '000000', '--black'))
+                        colorSwatchesSection.appendChild(Render.renderColorSwatch('White', 'FFFFFF', '--white'))
+                        colorSwatchesSection.appendChild(Render.renderColorSwatch('Carbon (Background Color)', '232323', "--carbon"))
+
+                        getValidCards();
+                    </code></pre>
+                </div>
+                <button id="show-code-button" class="show-code-button">Show Code</button>
+            </section>
             <p>STILL TO DO: make it tabbing accessible, add support for filtering by commander color identity, allow the switching of different pages, and make a suggester for the top cards.</p>
-        </section>
 
-        <section id="color-swatches-section" class="color-swatches-section">
-
+            
         </section>
         
         <section id="mtg-cards-section" class="mtg-cards-section">

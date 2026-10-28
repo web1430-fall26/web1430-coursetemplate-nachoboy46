@@ -1,92 +1,11 @@
 import * as Data from "./data.js";
+import * as Render from "./render.js";
 
 function renderCardSection(){
     const card = document.createElement('article');
     card.className='prettyCard';
     
 
-}
-
-function renderColorSwatch(_colorName, _colorRGB){
-    const swatch = document.createElement('section');
-    swatch.style.width = '140px'
-    swatch.className="color-swatch";
-    swatch.style.background = '#E0E0E0';
-    swatch.style.textAlign = 'center';
-
-
-    const colorNameSpacer = document.createElement('div');
-    const colorName = document.createElement('h3');
-    colorNameSpacer.appendChild(colorName);
-    colorNameSpacer.style.margin = '3px';
-    colorName.innerText = _colorName;
-    swatch.appendChild(colorNameSpacer);
-
-    const swatchColor = document.createElement('div');
-    swatchColor.style.background = `#${_colorRGB}`;
-    swatchColor.style.width = '120px';
-    swatchColor.style.height = '60px';
-    swatchColor.style.display = 'inline-block';
-    swatch.appendChild(swatchColor);
-
-    return swatch;
-}
-
-function renderMtgCard(_cardName,_image,_cardType,_text,_cost=null){
-    const mtgCard = document.createElement('article');
-    mtgCard.className = "mtg-card";
-    mtgCard.setAttribute("aria-hidden", "false");
-
-    const cardHeader = document.createElement("h3");
-    cardHeader.className = "mtg-card-name"
-    cardHeader.textContent = _cardName;
-    mtgCard.appendChild(cardHeader);
-
-    const cardArtSpacer = document.createElement("div");
-    const cardImage = document.createElement("img");
-    cardArtSpacer.appendChild(cardImage);
-    cardImage.className = "mtg-card-art";
-    cardImage.src = _image;
-    cardImage.alt = ("Image of the "+_cardName+" magic the gathering card");
-    mtgCard.appendChild(cardArtSpacer);
-
-    const hiddenSection = document.createElement("div");
-    hiddenSection.className="mtg-card-hidden-section";
-    hiddenSection.hidden = true;
-    hiddenSection.setAttribute('aria-hidden','true');
-    
-    mtgCard.appendChild(hiddenSection);
-
-    if(_cost){
-        const cardCostSpacer = document.createElement("div");
-        const cardCost = document.createElement("span");
-        cardCostSpacer.appendChild(cardCost);
-        cardCost.className = "mtg-card-cost"
-        cardCost.textContent = _cost;
-        hiddenSection.appendChild(cardCostSpacer);
-    }
-    
-    const cardTypeSpacer = document.createElement("div");
-    const cardType = document.createElement("span");
-    cardTypeSpacer.appendChild(cardType);
-    cardType.className = "mtg-card-type"
-    cardType.textContent = _cardType;
-    hiddenSection.appendChild(cardTypeSpacer);
-
-    const cardTextSpacer = document.createElement('div');
-    const cardText = document.createElement('p');
-    cardTextSpacer.appendChild(cardText);
-    cardText.className = "mtg-card-text"
-    cardText.textContent = _text;
-    hiddenSection.appendChild(cardTextSpacer);
-
-    const button = document.createElement('button');
-    button.className = "mtg-card-show-more-button";
-    button.textContent = 'show more';
-    mtgCard.appendChild(button);
-
-
-    return mtgCard;
 }
 
 function initMtgCardButtons(cardsSection){
@@ -115,6 +34,9 @@ function getValidCards(){
 }
 
 function searchCards(_searchTerm = null){
+    const cards = document.querySelectorAll(".mtg-card");
+    const searchBar = document.getElementById("search-bar");
+
     if(_searchTerm === ""){
         cards.forEach(function (card){
             card.style.display = "block";
@@ -123,8 +45,6 @@ function searchCards(_searchTerm = null){
         });
     }
 
-    const cards = document.querySelectorAll(".mtg-card");
-    const searchBar = document.getElementById("search-bar");
     let searchTerm = null;
     if(!_searchTerm){
         searchTerm = searchBar.value.trim().toLowerCase();
@@ -159,6 +79,22 @@ function initSearchBar(searchBar){
     });
 }
 
+function initShowCodeButton(showCodeButton){
+    showCodeButton.addEventListener('click', function(event){
+        if(event.target.matches('.show-code-button')){
+            const codeSection = document.getElementById('code-section');
+            if(codeSection.getAttribute('aria-hidden') === 'true'){
+                codeSection.hidden = false;
+                codeSection.setAttribute('aria-hidden','false');
+            } else {
+                codeSection.hidden = true;
+                codeSection.setAttribute('aria-hidden','true');
+            }
+            
+        }
+    });
+}
+
 // function initLinks(links){
 //     links.addEventListener("click", function (event){
 //         event.preventDefault();
@@ -175,17 +111,18 @@ Data.cardsData.sort(function (a,b){
     return a.name.localeCompare(b.name); // the return is very important, remember that Ammon.
 });
 Data.cardsData.forEach(function (cardData){
-    document.getElementById('mtg-cards-section').appendChild(renderMtgCard(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
+    document.getElementById('mtg-cards-section').appendChild(Render.renderMtgCard(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
 });
 
 initSearchBar(document.getElementById("search-bar"));
 initMtgCardButtons(document.getElementById('mtg-cards-section'));
+initShowCodeButton(document.getElementById('show-code-button'));
 
 const colorSwatchesSection = document.getElementById('color-swatches-section');
-colorSwatchesSection.appendChild(renderColorSwatch('Old Glory Red', 'B31942'))
-colorSwatchesSection.appendChild(renderColorSwatch('Old Glory Blue', '002868'))
-colorSwatchesSection.appendChild(renderColorSwatch('Black', '000000'))
-colorSwatchesSection.appendChild(renderColorSwatch('White', 'FFFFFF'))
-colorSwatchesSection.appendChild(renderColorSwatch('Carbon', '232323'))
+colorSwatchesSection.appendChild(Render.renderColorSwatch('Old Glory Red', 'B31942', "--primary-color"))
+colorSwatchesSection.appendChild(Render.renderColorSwatch('Old Glory Blue', '002868', "--secondary-color"))
+colorSwatchesSection.appendChild(Render.renderColorSwatch('Black', '000000', '--black'))
+colorSwatchesSection.appendChild(Render.renderColorSwatch('White', 'FFFFFF', '--white'))
+colorSwatchesSection.appendChild(Render.renderColorSwatch('Carbon (Background Color)', '232323', "--carbon"))
 
 getValidCards();
