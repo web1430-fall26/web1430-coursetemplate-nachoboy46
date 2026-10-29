@@ -48,7 +48,7 @@ h3{
     max-width: var(--card-width);
 }
 
-.mtg-card-art{
+.mtg-card-image{
     width:250px;
 }
 
@@ -76,7 +76,7 @@ h3{
 }
 
 img{
-    border-radius: 12px
+    border-radius: 12px;
 }
 
 blockquote{

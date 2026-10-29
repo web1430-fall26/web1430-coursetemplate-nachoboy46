@@ -16,8 +16,8 @@ button:focus{
 }
 
 button[aria-pressed='false']{
-    background-color: var(--primary-color);
-    color:var(--black);
+    background-color: var(--secondary-color);
+    color:var(--white);
 }
 
 button[aria-pressed='true']{
@@ -26,6 +26,71 @@ button[aria-pressed='true']{
 }
 
 /* product card */
-.product-card{
+.mtg-card{
     background-color: var(--primary-color);
+    text-align: center;
+    outline-style: solid;
+    outline-width: 6px;
+    outline-color: var(--secondary-color);
+    border-radius: 12px;
+    width: 275px;
 }
+
+.mtg-card-horizontal{
+    background-color: var(--primary-color);
+    text-align: center;
+    outline-style: solid;
+    outline-width: 6px;
+    outline-color: var(--secondary-color);
+    border-radius: 12px;
+
+    display:grid;
+    grid-template-rows: 125px 125px 125px auto;
+    grid-template-columns: 150px 250px;
+
+    overflow: hidden;
+
+}
+
+.mtg-card-horizontal .mtg-card-title{
+    grid-row-start:1;
+    grid-row-end:2;
+    grid-column-start:1;
+    grid-column-end:2;
+}
+
+.mtg-card-horizontal .mtg-card-show-more-button{
+    grid-row-start:3;
+    grid-row-end:4;
+    grid-column-start:1;
+    grid-column-end:2;
+}
+
+.mtg-card-horizontal .mtg-card-image{
+    grid-row-start:1;
+    grid-row-end:3;
+    grid-column-start:2;
+    grid-column-end:3;
+    padding-top:10px;
+}
+
+
+.mtg-card-horizontal .mtg-card-hidden-section{
+    grid-row-start:4;
+    grid-row-end:5;
+    grid-column-start:1;
+    grid-column-end:3;
+    padding-top: 10px;
+}
+
+.mtg-card-horizontal .mtg-card-hidden-section[hidden]{
+    display: none;
+}
+
+
+
+
+
+
+
+

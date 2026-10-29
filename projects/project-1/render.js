@@ -1,27 +1,26 @@
-export function renderMtgCard(_cardName,_image,_cardType,_text,_cost=null){
+export function renderMtgCard(_title,_image,_cardType,_body,_cost=null){
     const mtgCard = document.createElement('article');
     mtgCard.className = "mtg-card";
     mtgCard.setAttribute("aria-hidden", "false");
 
-    const cardHeader = document.createElement("h3");
-    cardHeader.className = "mtg-card-name"
-    cardHeader.textContent = _cardName;
-    mtgCard.appendChild(cardHeader);
+    const cardTitle = document.createElement("h3");
+    cardTitle.className = "mtg-card-title"
+    cardTitle.textContent = _title;
+    mtgCard.appendChild(cardTitle);
 
-    const cardArtSpacer = document.createElement("div");
+    const cardImageSpacer = document.createElement("div");
     const cardImage = document.createElement("img");
-    cardArtSpacer.appendChild(cardImage);
-    cardImage.className = "mtg-card-art";
+    cardImageSpacer.appendChild(cardImage);
+    cardImage.className = "mtg-card-image";
     cardImage.src = _image;
-    cardImage.alt = ("Image of the "+_cardName+" magic the gathering card");
-    mtgCard.appendChild(cardArtSpacer);
+    cardImage.alt = ("Image of the "+_title+" magic the gathering card");
+    mtgCard.appendChild(cardImageSpacer);
 
     const hiddenSection = document.createElement("div");
     hiddenSection.className="mtg-card-hidden-section";
     hiddenSection.hidden = true;
     hiddenSection.setAttribute('aria-hidden','true');
     hiddenSection.setAttribute('aria-expanded','false');
-    
     mtgCard.appendChild(hiddenSection);
 
     if(_cost){
@@ -40,12 +39,12 @@ export function renderMtgCard(_cardName,_image,_cardType,_text,_cost=null){
     cardType.textContent = _cardType;
     hiddenSection.appendChild(cardTypeSpacer);
 
-    const cardTextSpacer = document.createElement('div');
-    const cardText = document.createElement('p');
-    cardTextSpacer.appendChild(cardText);
-    cardText.className = "mtg-card-text"
-    cardText.textContent = _text;
-    hiddenSection.appendChild(cardTextSpacer);
+    const cardBodySpacer = document.createElement('div');
+    const cardBody = document.createElement('p');
+    cardBodySpacer.appendChild(cardBody);
+    cardBody.className = "mtg-card-body"
+    cardBody.textContent = _body;
+    hiddenSection.appendChild(cardBodySpacer);
 
     const button = document.createElement('button');
     button.className = "mtg-card-show-more-button";
@@ -53,6 +52,62 @@ export function renderMtgCard(_cardName,_image,_cardType,_text,_cost=null){
     button.setAttribute('aria-pressed', 'false');
     mtgCard.appendChild(button);
 
+    return mtgCard;
+}
+
+export function renderMtgCardHorizontal(_title,_image,_cardType,_body,_cost=null){
+    const mtgCard = document.createElement('article');
+    mtgCard.className = "mtg-card-horizontal";
+    mtgCard.setAttribute("aria-hidden", "false");
+
+    const cardTitle = document.createElement("h3");
+    cardTitle.className = "mtg-card-title"
+    cardTitle.textContent = _title;
+    mtgCard.appendChild(cardTitle);
+
+    const hiddenSection = document.createElement("div");
+    hiddenSection.className="mtg-card-hidden-section";
+    hiddenSection.hidden = true;
+    hiddenSection.setAttribute('aria-hidden','true');
+    hiddenSection.setAttribute('aria-expanded','false');
+    mtgCard.appendChild(hiddenSection);
+
+    if(_cost){
+        const cardCostSpacer = document.createElement("div");
+        const cardCost = document.createElement("span");
+        cardCostSpacer.appendChild(cardCost);
+        cardCost.className = "mtg-card-cost"
+        cardCost.textContent = _cost;
+        hiddenSection.appendChild(cardCostSpacer);
+    }
+    
+    const cardTypeSpacer = document.createElement("div");
+    const cardType = document.createElement("span");
+    cardTypeSpacer.appendChild(cardType);
+    cardType.className = "mtg-card-type"
+    cardType.textContent = _cardType;
+    hiddenSection.appendChild(cardTypeSpacer);
+
+    const cardBodySpacer = document.createElement('div');
+    const cardBody = document.createElement('p');
+    cardBodySpacer.appendChild(cardBody);
+    cardBody.className = "mtg-card-body"
+    cardBody.textContent = _body;
+    hiddenSection.appendChild(cardBodySpacer);
+
+    const button = document.createElement('button');
+    button.className = "mtg-card-show-more-button";
+    button.textContent = 'Show more';
+    button.setAttribute('aria-pressed', 'false');
+    mtgCard.appendChild(button);
+
+    const cardImageSpacer = document.createElement("div");
+    const cardImage = document.createElement("img");
+    cardImageSpacer.appendChild(cardImage);
+    cardImage.className = "mtg-card-image";
+    cardImage.src = _image;
+    cardImage.alt = ("Image of the "+_title+" magic the gathering card");
+    mtgCard.appendChild(cardImageSpacer);
 
     return mtgCard;
 }

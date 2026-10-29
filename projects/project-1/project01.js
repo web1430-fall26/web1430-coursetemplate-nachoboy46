@@ -30,6 +30,28 @@ function initMtgCardButtons(cardsSection){
     });
 }
 
+function initMtgCardHorizontalButtons(cardsSection){
+    cardsSection.addEventListener('click',function(event){
+        if(event.target.matches('.mtg-card-show-more-button')){
+            const card = event.target.closest('.mtg-card-horizontal');
+            const hiddenSection = card.querySelector('.mtg-card-hidden-section');
+            if(hiddenSection.getAttribute("aria-expanded") === "true"){
+                hiddenSection.hidden = true;
+                hiddenSection.setAttribute('aria-hidden', "true");
+                hiddenSection.setAttribute('aria-expanded','false');
+                event.target.textContent = "Show more";
+                event.target.setAttribute('aria-pressed','false');
+            } else {
+                hiddenSection.hidden = false;
+                hiddenSection.setAttribute('aria-hidden', "false");
+                hiddenSection.setAttribute('aria-expanded','true');
+                event.target.textContent = "Show less";
+                event.target.setAttribute('aria-pressed','true');
+            }
+        }
+    });
+}
+
 function getValidCards(){
     const cards = document.querySelectorAll(".mtg-card");
     cards.forEach(function (card){
@@ -117,11 +139,12 @@ Data.cardsData.sort(function (a,b){
     return a.name.localeCompare(b.name); // the return is very important, remember that Ammon.
 });
 Data.cardsData.forEach(function (cardData){
-    document.getElementById('mtg-cards-section').appendChild(Render.renderMtgCard(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
+    document.getElementById('mtg-cards-section').appendChild(Render.renderMtgCardHorizontal(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
 });
 
 initSearchBar(document.getElementById("search-bar"));
 initMtgCardButtons(document.getElementById('mtg-cards-section'));
+initMtgCardHorizontalButtons(document.getElementById('mtg-cards-section'));
 initShowCodeButton(document.getElementById('show-code-button'));
 
 const colorSwatchesSection = document.getElementById('color-swatches-section');

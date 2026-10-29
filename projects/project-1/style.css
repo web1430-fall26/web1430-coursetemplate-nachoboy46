@@ -2,42 +2,5 @@
 @import "components.css";
 @import "typography.css";
 
-.mtg-card-hidden-section{
-    max-width: var(--card-width);
-}
 
-.mtg-card-art{
-    width:250px;
-}
-
-.mtg-card-cost {
-    font-size: var(--font-size-large);
-    gap: 3px; /* Adds nice spacing between symbols */
-}
-
-.mtg-card-type{
-    font-size: var(--font-size-mediumLarge);
-    font-weight: bold;
-}
-
-.color-swatches-section{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    color: var(--black);
-}
-
-.mtg-cards-section{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-img{
-    border-radius: 12px
-}
-
-blockquote{
-    background-color: var(--secondary-color);
-}
 
