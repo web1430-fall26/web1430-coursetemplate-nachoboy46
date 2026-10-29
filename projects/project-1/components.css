@@ -1,0 +1,31 @@
+/* buttons */
+button:hover:enabled{
+    outline-style: solid;
+    outline-width: 4px;
+    outline-color: blue;
+}
+
+button:disabled{
+    opacity: 0.5;
+}
+
+button:focus{
+    outline-style: solid;
+    outline-width: 4px;
+    outline-color: green;
+}
+
+button[aria-pressed='false']{
+    background-color: var(--primary-color);
+    color:var(--black);
+}
+
+button[aria-pressed='true']{
+    background-color: var(--secondary-color);
+    color:var(--white);
+}
+
+/* product card */
+.product-card{
+    background-color: var(--primary-color);
+}

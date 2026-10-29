@@ -1,64 +1,6 @@
-:root {
-    --primary-color: #B31942;
-    --secondary-color: #002868;
-    --background-color: #232323;
-    --black: #000000;
-    --white: #FFFFFF;
-    --font-main: 'Ovo', serif;
-    --card-width: 250px;
-    --spacing-md: 20px;
-    --font-size-large: 1.5rem;
-    --font-size-mediumLarge: 1.1rem;
-    --font-size-standard:1rem;
-    --font-size-small:0.75rem;
-
-}
-
-html{
-    font-size: 16px
-}
-
-
-header{
-    background-color: var(--primary-color);
-    padding: var(--spacing-md);
-}
-
-.search-section{
-    background-color: var(--secondary-color);
-    padding: var(--spacing-md);
-}
-
-.search-label{
-    color: var(--white);
-}
-
-@font-face {
-    font-family: 'Ovo';
-    src: url('fonts/Ovo-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-body{
-    margin-top: 0;
-    margin:0;
-    font-family: "Ovo";
-    background-color: var(--background-color);
-    color: var(--white);
-}
-
-main{
-    padding: var(--spacing-md);
-    background-color: 232323;
-}
-
-h3{
-    font-size: var(--font-size-large);
-    max-width: var(--card-width);
-    min-height: 3.5rem;
-}
+@import "variables.css";
+@import "components.css";
+@import "typography.css";
 
 .mtg-card-hidden-section{
     max-width: var(--card-width);
@@ -98,3 +40,4 @@ img{
 blockquote{
     background-color: var(--secondary-color);
 }
+

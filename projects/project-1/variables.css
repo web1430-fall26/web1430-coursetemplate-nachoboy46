@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #B31942;
+    --secondary-color: #002868;
+    --background-color: #232323;
+    --black: #000000;
+    --white: #FFFFFF;
+    --font-main: 'Ovo', serif;
+    --card-width: 250px;
+    --spacing-md: 20px;
+    --font-size-large: 1.5rem;
+    --font-size-mediumLarge: 1.1rem;
+    --font-size-standard:1rem;
+    --font-size-small:0.75rem;
+
+}

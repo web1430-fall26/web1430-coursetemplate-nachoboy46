@@ -13,12 +13,18 @@ function initMtgCardButtons(cardsSection){
         if(event.target.matches('.mtg-card-show-more-button')){
             const card = event.target.closest('.mtg-card');
             const hiddenSection = card.querySelector('.mtg-card-hidden-section');
-            if(hiddenSection.getAttribute("aria-hidden") === "true"){
-                hiddenSection.hidden = false;
-                 hiddenSection.setAttribute('aria-hidden', "false");
-            } else {
+            if(hiddenSection.getAttribute("aria-expanded") === "true"){
                 hiddenSection.hidden = true;
                 hiddenSection.setAttribute('aria-hidden', "true");
+                hiddenSection.setAttribute('aria-expanded','false');
+                event.target.textContent = "Show more";
+                event.target.setAttribute('aria-pressed','false');
+            } else {
+                hiddenSection.hidden = false;
+                hiddenSection.setAttribute('aria-hidden', "false");
+                hiddenSection.setAttribute('aria-expanded','true');
+                event.target.textContent = "Show less";
+                event.target.setAttribute('aria-pressed','true');
             }
         }
     });
@@ -83,7 +89,7 @@ function initShowCodeButton(showCodeButton){
     showCodeButton.addEventListener('click', function(event){
         if(event.target.matches('.show-code-button')){
             const codeSection = document.getElementById('code-section');
-            if(codeSection.getAttribute('aria-hidden') === 'trueg'){
+            if(codeSection.getAttribute('aria-hidden') === 'true'){
                 codeSection.hidden = false;
                 codeSection.setAttribute('aria-hidden','false');
             } else {
