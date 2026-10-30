@@ -174,21 +174,25 @@ function initAccordianSection(accordianSection){
         if(!accordianButton){
             return;
         }
+        const buttonState = accordianButton.getAttribute('aria-selected');
 
         const accordianButtons=accordianSection.querySelectorAll('.accordian-button');
         accordianButtons.forEach(function(button){
             button.setAttribute('aria-selected','false');
         });
-        const accordianBodySections = document.querySelectorAll('.accordian-body-section');
+        const accordianBodySections = document.querySelectorAll('.accordian-section-body');
         accordianBodySections.forEach(function(accordianBodySection){
             accordianBodySection.setAttribute('aria-hidden','true');
             accordianBodySection.hidden = true;
         });
 
-        accordianButton.setAttribute('aria-selected','true');
-        const accordianBodySection = accordianSection.querySelector('#'+accordianButton.getAttribute('aria-controls'));
-        accordianBodySection.setAttribute('aria-hidden','false');
-        accordianBodySection.hidden = false;
+        if(buttonState != 'true'){
+            accordianButton.setAttribute('aria-selected','true');
+            const accordianBodySection = accordianSection.querySelector('#'+accordianButton.getAttribute('aria-controls'));
+            accordianBodySection.setAttribute('aria-hidden','false');
+            accordianBodySection.hidden = false;
+        }
+        
     });
 }
 

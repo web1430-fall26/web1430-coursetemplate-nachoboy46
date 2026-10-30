@@ -115,6 +115,7 @@ button[aria-pressed='true']{
     width: 175px;
 }
 
+/* tabs section */
 .tab[hidden]{
     display: none !important; /* !important makes it the top dog for priority things*/
 }
@@ -142,6 +143,45 @@ button[role="tab"][aria-selected="true"]{
 button[role="tab"][aria-selected="false"]{
     background-color:var(--secondary-color);
 }
+
+/* accordian section */
+
+.accordian-section{
+    margin: 20px auto 0;
+    display: flex;
+    gap: 20px;
+    width: 500px;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+
+
+}
+
+.accordian-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.accordian-button{
+    width: 250px;
+    height:80px;
+    font-size: var(--font-size-large);
+    color:var(--white);
+}
+
+.accordian-button[aria-selected='true']{
+    background-color:var(--primary-color);
+}
+
+.accordian-button[aria-selected='false']{
+    background-color:var(--secondary-color);
+}
+
+
+
+
 
 
 

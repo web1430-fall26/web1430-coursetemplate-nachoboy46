@@ -38,6 +38,10 @@ main{
     background-color: 232323;
 }
 
+h2{
+    text-align: center;
+}
+
 h3{
     font-size: var(--font-size-large);
     max-width: var(--card-width);
