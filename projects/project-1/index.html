@@ -228,13 +228,21 @@
                 <button id="show-code-button" class="show-code-button">Show Code</button>
             </section>
             <p>STILL TO DO: make it tabbing accessible, add support for filtering by commander color identity, allow the switching of different pages, and make a suggester for the top cards.</p>
-
-            
         </section>
         
-        <section id="mtg-cards-section" class="mtg-cards-section">
+        <section class='tabs-section' id="tabs-section">
+            <div class="tab-buttons" id="tab-buttons">
+                <button role="tab" aria-selected="true" aria-controls="mtg-cards-tab" tabindex="0">Standard Cards</button>
+                <button role="tab" aria-selected="false" aria-controls="mtg-cards-horizontal-tab" tabindex="1">Horizontal Cards</button>
+                <button role="tab" aria-selected="false" aria-controls="mtg-cards-no-image-tab" tabindex="2">Imageless Cards</button>
+            </div>
 
+            <section id="mtg-cards-tab" class="tab" aria-hidden="false"></section>
+            <section id="mtg-cards-horizontal-tab" class="tab" aria-hidden="true" hidden></section>
+            <section id="mtg-cards-no-image-tab" class="tab" aria-hidden="true" hidden></section>
         </section>
+
+        
         
 
     </main>

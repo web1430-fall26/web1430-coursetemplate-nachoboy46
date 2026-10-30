@@ -52,6 +52,28 @@ function initMtgCardHorizontalButtons(cardsSection){
     });
 }
 
+function initMtgCardNoImageButtons(cardsSection){
+    cardsSection.addEventListener('click',function(event){
+        if(event.target.matches('.mtg-card-show-more-button')){
+            const card = event.target.closest('.mtg-card-no-image');
+            const hiddenSection = card.querySelector('.mtg-card-hidden-section');
+            if(hiddenSection.getAttribute("aria-expanded") === "true"){
+                hiddenSection.hidden = true;
+                hiddenSection.setAttribute('aria-hidden', "true");
+                hiddenSection.setAttribute('aria-expanded','false');
+                event.target.textContent = "Show more";
+                event.target.setAttribute('aria-pressed','false');
+            } else {
+                hiddenSection.hidden = false;
+                hiddenSection.setAttribute('aria-hidden', "false");
+                hiddenSection.setAttribute('aria-expanded','true');
+                event.target.textContent = "Show less";
+                event.target.setAttribute('aria-pressed','true');
+            }
+        }
+    });
+}
+
 function getValidCards(){
     const cards = document.querySelectorAll(".mtg-card");
     cards.forEach(function (card){
@@ -123,6 +145,29 @@ function initShowCodeButton(showCodeButton){
     });
 }
 
+function initTabButtons(tabsSection){
+    tabsSection.addEventListener('click', function(event){
+        const button = event.target.closest("[role='tab']");
+        if (!button){
+            return;
+        }
+        const buttons = tabsSection.querySelectorAll("[role='tab']");
+        buttons.forEach(function(button){
+            button.setAttribute('aria-selected','false');
+        });
+        const sections = tabsSection.querySelectorAll('.tab');
+        sections.forEach(function(tab){
+            tab.hidden = true;
+            tab.setAttribute('aria-hidden','true');
+        })
+
+        button.setAttribute('aria-selected','true')
+        const correctSection = tabsSection.querySelector('#'+button.getAttribute('aria-controls'));
+        correctSection.hidden = false;
+        correctSection.setAttribute('aria-hidden','false');
+    });
+}
+
 // function initLinks(links){
 //     links.addEventListener("click", function (event){
 //         event.preventDefault();
@@ -139,13 +184,18 @@ Data.cardsData.sort(function (a,b){
     return a.name.localeCompare(b.name); // the return is very important, remember that Ammon.
 });
 Data.cardsData.forEach(function (cardData){
-    document.getElementById('mtg-cards-section').appendChild(Render.renderMtgCardHorizontal(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
+    document.getElementById('mtg-cards-tab').appendChild(Render.renderMtgCard(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
+    document.getElementById('mtg-cards-horizontal-tab').appendChild(Render.renderMtgCardHorizontal(cardData.name,cardData.art,cardData.type,cardData.text,cardData.cost));
+    document.getElementById('mtg-cards-no-image-tab').appendChild(Render.renderMtgCardNoImage(cardData.name,cardData.type,cardData.text,cardData.cost));
 });
 
+
 initSearchBar(document.getElementById("search-bar"));
-initMtgCardButtons(document.getElementById('mtg-cards-section'));
-initMtgCardHorizontalButtons(document.getElementById('mtg-cards-section'));
+initMtgCardButtons(document.getElementById('mtg-cards-tab'));
+initMtgCardHorizontalButtons(document.getElementById('mtg-cards-horizontal-tab'));
+initMtgCardNoImageButtons(document.getElementById('mtg-cards-no-image-tab'))
 initShowCodeButton(document.getElementById('show-code-button'));
+initTabButtons(document.getElementById('tabs-section'));
 
 const colorSwatchesSection = document.getElementById('color-swatches-section');
 colorSwatchesSection.appendChild(Render.renderColorSwatch('Old Glory Red', 'B31942', "--primary-color"))
