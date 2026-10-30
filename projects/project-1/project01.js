@@ -168,6 +168,30 @@ function initTabButtons(tabsSection){
     });
 }
 
+function initAccordianSection(accordianSection){
+    accordianSection.addEventListener('click',function(event){
+        const accordianButton=event.target.closest('.accordian-button');
+        if(!accordianButton){
+            return;
+        }
+
+        const accordianButtons=accordianSection.querySelectorAll('.accordian-button');
+        accordianButtons.forEach(function(button){
+            button.setAttribute('aria-selected','false');
+        });
+        const accordianBodySections = document.querySelectorAll('.accordian-body-section');
+        accordianBodySections.forEach(function(accordianBodySection){
+            accordianBodySection.setAttribute('aria-hidden','true');
+            accordianBodySection.hidden = true;
+        });
+
+        accordianButton.setAttribute('aria-selected','true');
+        const accordianBodySection = accordianSection.querySelector('#'+accordianButton.getAttribute('aria-controls'));
+        accordianBodySection.setAttribute('aria-hidden','false');
+        accordianBodySection.hidden = false;
+    });
+}
+
 // function initLinks(links){
 //     links.addEventListener("click", function (event){
 //         event.preventDefault();
@@ -196,6 +220,7 @@ initMtgCardHorizontalButtons(document.getElementById('mtg-cards-horizontal-tab')
 initMtgCardNoImageButtons(document.getElementById('mtg-cards-no-image-tab'))
 initShowCodeButton(document.getElementById('show-code-button'));
 initTabButtons(document.getElementById('tabs-section'));
+initAccordianSection(document.getElementById('accordian-section'))
 
 const colorSwatchesSection = document.getElementById('color-swatches-section');
 colorSwatchesSection.appendChild(Render.renderColorSwatch('Old Glory Red', 'B31942', "--primary-color"))
