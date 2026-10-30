@@ -15,14 +15,18 @@
     <header class="header">
         <h1 class="header-label">Magic the Gathering Awesomeness</h1>
         <p class="header-message">Thank you for visiting my site! I hope you enjoy your stay. Here are the tops cards at the moment:</p>
-        <section id="topCardsSection">
-            <div class="top-cards-section-padding">
-                
-            </div>
-        </section>
+        <nav>
+            <ul>
+                <li><a href="#search-section">Search Section</a></li>
+                <li><a href="#color-swatches-section">Color Swatches Section</a></li>
+                <li><a href="#typography-section">Typography Section</a></li>
+                <li><a href="#tabs-section">Tab Section</a></li>
+                <li><a href="#accordion-section">Accordion Section</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="search-section">
+    <section class="search-section" id="search-section">
         <h2 class="search-label">Search</h2>
         <search>
             <form action="/search" method="get" id="search-form">
@@ -36,7 +40,7 @@
 
         </section>
 
-        <section class="typography-section">
+        <section class="typography-section" id="typography-section">
             <blockquote><p>Quotes are an important part of modern website development. This is an example</p><cite>Albert Einstein.</cite></blockquote>
 
             <div>
@@ -225,7 +229,7 @@
                         getValidCards();
                     </code></pre>
                 </div>
-                <button id="show-code-button" class="show-code-button">Show Code</button>
+                <button id="show-code-button" class="show-code-button" tabindex="0">Show Code</button>
             </section>
             <p>STILL TO DO: make it tabbing accessible, add support for filtering by commander color identity, allow the switching of different pages, and make a suggester for the top cards.</p>
         </section>
@@ -234,9 +238,9 @@
             <h2 class="Card View Section">Cards</h2>
 
             <div class="tab-buttons" id="tab-buttons">
-                <button role="tab" aria-selected="true" aria-controls="mtg-cards-tab" tabindex="0">Standard Cards</button>
-                <button role="tab" aria-selected="false" aria-controls="mtg-cards-horizontal-tab" tabindex="1">Horizontal Cards</button>
-                <button role="tab" aria-selected="false" aria-controls="mtg-cards-no-image-tab" tabindex="2">Imageless Cards</button>
+                <button role="tab" aria-selected="true" aria-controls="mtg-cards-tab" tabindex="1">Standard Cards</button>
+                <button role="tab" aria-selected="false" aria-controls="mtg-cards-horizontal-tab" tabindex="2">Horizontal Cards</button>
+                <button role="tab" aria-selected="false" aria-controls="mtg-cards-no-image-tab" tabindex="3">Imageless Cards</button>
             </div>
 
             <section id="mtg-cards-tab" class="tab" aria-hidden="false"></section>
@@ -244,32 +248,32 @@
             <section id="mtg-cards-no-image-tab" class="tab" aria-hidden="true" hidden></section>
         </section>
 
-        <section class="accordian-section" id="accordian-section">
-            <h2 class="accordian-section-title">Magic the Gathering Phases</h2>
+        <section class="accordion-section" id="accordion-section">
+            <h2 class="accordion-section-title">Magic the Gathering Phases</h2>
 
-            <div class="accordian-item" id="accordian-item-1">
-                <button class="accordian-button" id="accordian-button-1" aria-controls="beginning-phase-accordian-body" aria-selected="false">Beginning Phase</button>
-                <p class="accordian-section-body" id="beginning-phase-accordian-body" aria-hidden='true' hidden>To start the beginning phase , you untap (turn to face right side up) all permanents (Things laid out in front of you) that you control. Then, you have your upkeep. This doesn't do anything by itself, but some cards have triggers here, so keep note of it. Lastly, you draw a card.</p>
+            <div class="accordion-item" id="accordion-item-1">
+                <button class="accordion-button" tabindex="4" id="accordion-button-1" aria-controls="beginning-phase-accordion-body" aria-selected="false">Beginning Phase</button>
+                <p class="accordion-section-body" id="beginning-phase-accordion-body" aria-hidden='true' hidden>To start the beginning phase , you untap (turn to face right side up) all permanents (Things laid out in front of you) that you control. Then, you have your upkeep. This doesn't do anything by itself, but some cards have triggers here, so keep note of it. Lastly, you draw a card.</p>
             </div>
 
-            <div class="accordian-item" id="accordian-item-2">
-                <button class="accordian-button" id="accordian-button-2" aria-controls="first-main-phase-accordian-body" aria-selected="false">First Main Phase</button>
-                <p class="accordian-section-body" id="first-main-phase-accordian-body" aria-hidden='true' hidden>During your first main phase, you can cast spells and play lands. You can play one land per turn by taking a land card from your hand and playing it down in front of you. You also play the majority of your spells during your main phase, as most spells (with a few exceptions, like instants or creatures with flash) are cast during you main phase. You may cast as many spells as you have mana to pay for. You get mana by tapping your lands. (turning them sideways.)</p>
+            <div class="accordion-item" id="accordion-item-2">
+                <button class="accordion-button" tabindex="5" id="accordion-button-2" aria-controls="first-main-phase-accordion-body" aria-selected="false">First Main Phase</button>
+                <p class="accordion-section-body" id="first-main-phase-accordion-body" aria-hidden='true' hidden>During your first main phase, you can cast spells and play lands. You can play one land per turn by taking a land card from your hand and playing it down in front of you. You also play the majority of your spells during your main phase, as most spells (with a few exceptions, like instants or creatures with flash) are cast during you main phase. You may cast as many spells as you have mana to pay for. You get mana by tapping your lands. (turning them sideways.)</p>
             </div>
 
-            <div class="accordian-item" id="accordian-item-3">
-                <button class="accordian-button" id="accordian-button-3" aria-controls="combat-accordian-body" aria-selected="false">Combat</button>
-                <p class="accordian-section-body" id="combat-accordian-body" aria-hidden='true' hidden>Combat starts with the beginning of phase. This is similar to your upkeep, in that stuff only happens if a card references this. Then, you enter your declaring attackers phase. You declare which of your creatures in front of you are attacking and what player or planeswalker they are attacking. Them you tap them (turn them sideways) to show this. After this, there is the declare blockers phase. Your opponent looks at the untapped creatures in front of them, and declares which of them, if any, they would like to have block the creatures you declared attacking. Then, there is the damage step, in which creatures deal damage to eachother and players, potentially killing creatuers and or players. Then, there is the end of combat step, which functions like the beginning of combat step.</p>
+            <div class="accordion-item" id="accordion-item-3">
+                <button class="accordion-button" tabindex="6" id="accordion-button-3" aria-controls="combat-accordion-body" aria-selected="false">Combat</button>
+                <p class="accordion-section-body" id="combat-accordion-body" aria-hidden='true' hidden>Combat starts with the beginning of phase. This is similar to your upkeep, in that stuff only happens if a card references this. Then, you enter your declaring attackers phase. You declare which of your creatures in front of you are attacking and what player or planeswalker they are attacking. Them you tap them (turn them sideways) to show this. After this, there is the declare blockers phase. Your opponent looks at the untapped creatures in front of them, and declares which of them, if any, they would like to have block the creatures you declared attacking. Then, there is the damage step, in which creatures deal damage to eachother and players, potentially killing creatuers and or players. Then, there is the end of combat step, which functions like the beginning of combat step.</p>
             </div>
 
-            <div class="accordian-item" id="accordian-item-4">
-                <button class="accordian-button" id="accordian-button-4" aria-controls="second-main-phase-accordian-body" aria-selected="false">Second Main Phase</button>
-                <p class="accordian-section-body" id="second-main-phase-accordian-body" aria-hidden='true' hidden>The second main phase behaves exactly like the first main phase. You can cast more spells, and you can also play a land card if you still haven't played on yet this turn. The only difference is this one is after combat.</p>
+            <div class="accordion-item" id="accordion-item-4">
+                <button class="accordion-button" tabindex="7" id="accordion-button-4" aria-controls="second-main-phase-accordion-body" aria-selected="false">Second Main Phase</button>
+                <p class="accordion-section-body" id="second-main-phase-accordion-body" aria-hidden='true' hidden>The second main phase behaves exactly like the first main phase. You can cast more spells, and you can also play a land card if you still haven't played on yet this turn. The only difference is this one is after combat.</p>
             </div>
 
-            <div class="accordian-item" id="accordian-item-5">
-                <button class="accordian-button" id="accordian-button-5" aria-controls="end-step-accordian-body" aria-selected="false">End Step</button>
-                <p class="accordian-section-body" id="end-step-accordian-body" aria-hidden='true' hidden>The phase in your turn is the end step. There is first the beginning of your end step, which behaves like upkeep and has the chance to trigger certain abilities based on the board state, but by itself does nothing. Then there is the discard step, in which your will discard down to the maximum hand size of seven cards in the event that you have more than seven cards in hand. After this your turn is over and the next player in the turn rotation takes their turn.</p>
+            <div class="accordion-item" id="accordion-item-5">
+                <button class="accordion-button" tabindex="8" id="accordion-button-5" aria-controls="end-step-accordion-body" aria-selected="false">End Step</button>
+                <p class="accordion-section-body" id="end-step-accordion-body" aria-hidden='true' hidden>The phase in your turn is the end step. There is first the beginning of your end step, which behaves like upkeep and has the chance to trigger certain abilities based on the board state, but by itself does nothing. Then there is the discard step, in which your will discard down to the maximum hand size of seven cards in the event that you have more than seven cards in hand. After this your turn is over and the next player in the turn rotation takes their turn.</p>
             </div>
         </section>
 

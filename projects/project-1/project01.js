@@ -168,29 +168,29 @@ function initTabButtons(tabsSection){
     });
 }
 
-function initAccordianSection(accordianSection){
-    accordianSection.addEventListener('click',function(event){
-        const accordianButton=event.target.closest('.accordian-button');
-        if(!accordianButton){
+function initaccordionSection(accordionSection){
+    accordionSection.addEventListener('click',function(event){
+        const accordionButton=event.target.closest('.accordion-button');
+        if(!accordionButton){
             return;
         }
-        const buttonState = accordianButton.getAttribute('aria-selected');
+        const buttonState = accordionButton.getAttribute('aria-selected');
 
-        const accordianButtons=accordianSection.querySelectorAll('.accordian-button');
-        accordianButtons.forEach(function(button){
+        const accordionButtons=accordionSection.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(function(button){
             button.setAttribute('aria-selected','false');
         });
-        const accordianBodySections = document.querySelectorAll('.accordian-section-body');
-        accordianBodySections.forEach(function(accordianBodySection){
-            accordianBodySection.setAttribute('aria-hidden','true');
-            accordianBodySection.hidden = true;
+        const accordionBodySections = document.querySelectorAll('.accordion-section-body');
+        accordionBodySections.forEach(function(accordionBodySection){
+            accordionBodySection.setAttribute('aria-hidden','true');
+            accordionBodySection.hidden = true;
         });
 
         if(buttonState != 'true'){
-            accordianButton.setAttribute('aria-selected','true');
-            const accordianBodySection = accordianSection.querySelector('#'+accordianButton.getAttribute('aria-controls'));
-            accordianBodySection.setAttribute('aria-hidden','false');
-            accordianBodySection.hidden = false;
+            accordionButton.setAttribute('aria-selected','true');
+            const accordionBodySection = accordionSection.querySelector('#'+accordionButton.getAttribute('aria-controls'));
+            accordionBodySection.setAttribute('aria-hidden','false');
+            accordionBodySection.hidden = false;
         }
         
     });
@@ -224,7 +224,7 @@ initMtgCardHorizontalButtons(document.getElementById('mtg-cards-horizontal-tab')
 initMtgCardNoImageButtons(document.getElementById('mtg-cards-no-image-tab'))
 initShowCodeButton(document.getElementById('show-code-button'));
 initTabButtons(document.getElementById('tabs-section'));
-initAccordianSection(document.getElementById('accordian-section'))
+initaccordionSection(document.getElementById('accordion-section'))
 
 const colorSwatchesSection = document.getElementById('color-swatches-section');
 colorSwatchesSection.appendChild(Render.renderColorSwatch('Old Glory Red', 'B31942', "--primary-color"))
