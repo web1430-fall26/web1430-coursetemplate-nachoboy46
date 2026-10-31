@@ -47,6 +47,7 @@ export function renderMtgCard(_title,_image,_cardType,_body,_cost=null){
     hiddenSection.appendChild(cardBodySpacer);
 
     const button = document.createElement('button');
+    button.setAttribute('tabindex','-1');
     button.className = "mtg-card-show-more-button";
     button.textContent = 'Show more';
     button.setAttribute('aria-pressed', 'false');
@@ -96,6 +97,7 @@ export function renderMtgCardHorizontal(_title,_image,_cardType,_body,_cost=null
     hiddenSection.appendChild(cardBodySpacer);
 
     const button = document.createElement('button');
+    button.setAttribute('tabindex','-1');
     button.className = "mtg-card-show-more-button";
     button.textContent = 'Show more';
     button.setAttribute('aria-pressed', 'false');
@@ -153,6 +155,7 @@ export function renderMtgCardNoImage(_title,_cardType,_body,_cost=null){
     hiddenSection.appendChild(cardBodySpacer);
 
     const button = document.createElement('button');
+    button.setAttribute('tabindex','-1');
     button.className = "mtg-card-show-more-button";
     button.textContent = 'Show more';
     button.setAttribute('aria-pressed', 'false');

@@ -11,7 +11,7 @@ button:disabled{
 
 button:focus{
     outline-style: solid;
-    outline-width: 4px;
+    outline-width: 8px;
     outline-color: green;
 }
 
@@ -76,6 +76,7 @@ button[aria-pressed='true']{
     grid-row-end:4;
     grid-column-start:1;
     grid-column-end:2;
+    margin: 10px;
 }
 
 .mtg-card-horizontal .mtg-card-image{
@@ -113,6 +114,12 @@ button[aria-pressed='true']{
     outline-color: var(--secondary-color);
     border-radius: 12px;
     width: 175px;
+}
+
+.mtg-card-no-image button, .mtg-card button{
+    width:100px;
+    height:60px;
+    margin-bottom:10px;
 }
 
 /* tabs section */

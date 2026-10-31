@@ -1,0 +1,96 @@
+html{
+    font-size: 16px
+}
+
+
+
+
+header{
+    background-color: var(--primary-color);
+    padding: var(--spacing-md);
+}
+
+.search-section{
+    background-color: var(--secondary-color);
+    padding: var(--spacing-md);
+}
+
+.search-label{
+    color: var(--white);
+}
+
+@font-face {
+    font-family: 'Ovo';
+    src: url('fonts/Ovo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    margin-top: 0;
+    margin:0;
+    font-family: "Ovo";
+    background-color: var(--background-color);
+    color: var(--white);
+}
+
+main{
+    padding: var(--spacing-md);
+    background-color: 232323;
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    font-size: var(--font-size-large);
+    max-width: var(--card-width);
+    min-height: 3.5rem;
+}
+
+.mtg-card-hidden-section{
+    max-width: var(--card-width);
+}
+
+.mtg-card-image{
+    width:250px;
+}
+
+.mtg-card-cost {
+    font-size: var(--font-size-large);
+    gap: 3px; /* Adds nice spacing between symbols */
+}
+
+.mtg-card-type{
+    font-size: var(--font-size-mediumLarge);
+    font-weight: bold;
+}
+
+.color-swatches-section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--black);
+}
+
+.mtg-cards-section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+img{
+    border-radius: 12px;
+}
+
+blockquote{
+    background-color: var(--secondary-color);
+}
+
+footer{
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+}
