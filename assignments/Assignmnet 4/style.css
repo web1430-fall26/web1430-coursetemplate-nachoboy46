@@ -1,5 +1,5 @@
 body{
-    background-color: red;
+    background-color: lightblue;
 }
 
 .loader{
@@ -21,18 +21,22 @@ h2{
     overflow-wrap:anywhere;
 }
 
-.book-card{
+.mtg-card{
     outline-width:4px;
     outline-style: solid;
     outline-color:black;
-    background-color: lightblue;
-    width: 350px;
-    height:300px;
+    background-color: plum;
+    width: 300px;
+    min-height: 300px;
+    height: auto;
     border-radius: 12px;
     display:flex;
     flex-direction: column; 
-    justify-content: center;
-    align-items:center  ;
+    align-items:center;
+}
+
+.mtg-card img{
+    width: 250px;
 }
 
 #results-region{

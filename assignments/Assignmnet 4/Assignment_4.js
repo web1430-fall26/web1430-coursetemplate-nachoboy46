@@ -20,7 +20,7 @@ function normalizeCards(data) {
   data.forEach(function(card){
     list.push({
     name: card.name || 'Unkown Name',
-    art: card.image_uris.normal || 'no-art',
+    art: card.image_uris?.normal || card.card_faces?.[0]?.image_uris?.normal || 'no-art', //The question marks are important
     oracleText: card.oracle_text || 'Unkown Oracle Text',
     flavorText: card.flavor_text});
   });
@@ -61,50 +61,54 @@ function renderCards(cards) {
     card.appendChild(title);
 
     const art = document.createElement('img');
-    art.className='card-art';
-    art.src = cardData.art;
+    art.className='card-art';  
+    if(cardData.art !== 'no-art'){
+        art.src = cardData.art;
+    } else {
+        art.src = 'art/noArt.jpg';
+    }
     card.appendChild(art);
+    
 
-    const text = document.createElement('p');
-    text.className='card-text';
-    text.innerText =cardData.oracleText;
-    card.appendChild(text);
+    if (cardData.oracleText !== 'Unkown Oracle Text'){
+        const text = document.createElement('p');
+        text.className='card-text';
+        text.innerText =cardData.oracleText;
+        card.appendChild(text);
+    }
 
-    const flavorText = document.createElement('p');
-    flavorText.className='card-flavor-text';
-    flavorText.innerText =cardData.flavorText;
-    card.appendChild(flavorText);
-
+    if(cardData.flavorText !== undefined){
+        const flavorText = document.createElement('p');
+        flavorText.className='card-flavor-text';
+        flavorText.innerText =cardData.flavorText;
+        card.appendChild(flavorText);
+    }
+    
     resultsRegion.appendChild(card);
 });
 }
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const data = await fetchCards('lightning');
-  const freshData = normalizeCards(data.data);
-  renderCards(freshData);
-  console.log(freshData);
-//   const query = input.value.trim();
+  const query = input.value.trim();
 
-//   if (!query) {
-//     showError('Please enter a search term.');
-//     return;
-//   }
+  if (!query) {
+    showError('Please enter a search term.');
+    return;
+  }
 
-//   showLoading();
+  showLoading();
 
-//   try {
-//     console.log(query);
-//     const dataWack = await fetchBooks(query);
-//     const dataNormal = normalizeBooks(dataWack.docs);
-//     if(dataNormal.length > 0){
-//       renderBooks(dataNormal);
-//     } else {
-//       showEmpty();
-//     }
-//   } catch (error) {
-//     showError('Unable to load results. Please check your connection and try again.');
-//     console.error(error);
-//   }
+  try {
+    const grossData = await fetchCards('the');
+    const data = normalizeCards(grossData.data);
+    if(data.length > 0){
+      renderCards(data);
+    } else {
+      showEmpty();
+    }
+  } catch (error) {
+    showError('Unable to load results. Please check your connection and try again.');
+    console.error(error);
+  }
 });
