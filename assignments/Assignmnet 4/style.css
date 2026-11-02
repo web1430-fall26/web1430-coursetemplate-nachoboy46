@@ -33,6 +33,7 @@ h2{
     display:flex;
     flex-direction: column; 
     align-items:center;
+    padding:10px;
 }
 
 .mtg-card img{
@@ -47,6 +48,33 @@ h2{
     row-gap:30px; 
 }
 
-p{
+.mtg-card .card-text{
     font-size: 1.2rem;
+}
+
+.mtg-card .card-flavor-text{
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+#loading-symbol-container-for-centering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:120px;
+}
+
+button:enabled{
+    visibility: shown;
+    width:80px;
+    height:40px;
+    background-color: aquamarine;
+    outline-width: 4px;
+    outline-color:black;
+    outline-style: solid;
+    border-radius: 12px;
+}
+
+button:disabled{
+    visibility: hidden;
 }

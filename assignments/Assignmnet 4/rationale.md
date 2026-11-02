@@ -1,0 +1,7 @@
+#Rationale
+
+I used the scryfall API, I made it so people could quickly access magic the gathering cards
+My normalization function was a little more complicated than the lab, because the data here was more inconsistent. For example, the naming conventions for double sided cards was different than with single sided ones, so I had to account for that.
+One error I had trouble dealing with was when no cards were returned, it would say there was an error instead of there being no cards available. This is because the scryfall api handled no matching results entirely differently from the books one, the books one returned an empty list, but the scryfall one sent a 404 error, and so I had to handle that very different. It took me a while to figure out what was going on.
+If I was building this for a real audience, I would add decklists and a button below each card to quickly add it to the list, so people could keep track of the cards that like the best.
+I learned that I can't get all the data I want at once, I have to do multiple querys and save where I am in it. That's why I needed the show more button if I wanted to see everything, because the rate-limit of the scryfall api was a max of 175 cards per query.
