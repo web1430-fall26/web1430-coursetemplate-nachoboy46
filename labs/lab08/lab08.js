@@ -17,7 +17,12 @@ const resultsRegion = document.getElementById('results-region');
 // Response shape: { numFound: N, docs: [ { title, author_name, first_publish_year }, ... ] }
 async function fetchBooks(query) {
   const response = await fetch(`https://openlibrary.org/search.json?title=${query}&limit=12`);
-  const data = await response.json();
+  let data = null;
+  if (!response.ok){
+    throw new Error(`Request failed: ${response.status}`)
+  } else {
+    data = await response.json();
+  }
   return data;
 }
 
@@ -47,7 +52,7 @@ function normalizeBooks(docs) {
 function showLoading() {
   // Clear resultsRegion, append a <p class="status-loading"> reading "Searching for books…"
   // TODO
-  resultsRegion.innerHTML = '';
+  resultsRegion.textContent = '';
   const loader = document.createElement('div');
   loader.className = 'loader';
   resultsRegion.appendChild(loader);
@@ -55,7 +60,7 @@ function showLoading() {
 
 function showError(message) {
   // Clear resultsRegion, append a <p class="status-error"> with the provided message
-  resultsRegion.innerHTML = '';
+  resultsRegion.textContent = '';
   const errorMessage = document.createElement('p');
   errorMessage.className='status-error'
   errorMessage.innerText = message;
@@ -66,7 +71,7 @@ function showError(message) {
 function showEmpty() {
   // Clear resultsRegion, append a <p class="status-empty"> reading "No books found. Try a different search."
   // TODO
-  resultsRegion.innerHTML = '';
+  resultsRegion.textContent = '';
   const emptyMessage = document.createElement('p');
   emptyMessage.className='status=empty'
   emptyMessage.innerText = 'No books found. Try a different search.';
@@ -81,7 +86,7 @@ function renderBooks(books) {
   //   - year in a <p class="book-year">
   // Append all cards to resultsRegion.
   // TODO
-  resultsRegion.innerHTML = '';
+  resultsRegion.textContent = '';
   books.forEach(function(bookData){
     const book = document.createElement('article');
     book.className='book-card';
