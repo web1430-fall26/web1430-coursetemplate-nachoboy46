@@ -23,10 +23,30 @@ function loadPreferences() {
   }
 }
 
+
+function showStorageWarning(){
+  const warning = document.getElementById('storage-warning');
+  if(warning.getAttribute('aria-hidden') == 'true'){
+    warning.setAttribute('aria-hidden','false');
+    warning.hidden = false;
+  } else {
+    warning.setAttribute('aria-hidden','true');
+    warning.hidden = true;
+  }
+}
+
 // savePreferences(prefs)
 // Serializes the prefs object and writes it to localStorage.
 function savePreferences(prefs) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+  } catch (error){
+    if(error.name === 'QuotaExceededError'){
+      console.warn('Local storage amount has been exceeded. Preferences will not be saved this session.');
+      showStorageWarning();
+    }
+  }
+  
 }
 
 // applyPreferences(prefs, articleEl)
@@ -69,9 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Listen for radio button changes
   panel.addEventListener('change', function(event){
-    if(event.target != panel){
-      return;
-    }
     const updated = loadPreferences();
     if (event.target.name === 'theme'){
       updated.theme = event.target.value;
@@ -83,10 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     savePreferences(updated);
     applyPreferences(updated,article);
-
-    
   });
 
+  resetBtn.addEventListener('click', function(){
+    savePreferences({...DEFAULTS});
+    applyPreferences(DEFAULTS, article);
+    syncRadioButtons(DEFAULTS);
+  });
 
   // TODO: Add a 'change' listener to panel.
   // When a radio changes, load the current prefs, update the changed property,

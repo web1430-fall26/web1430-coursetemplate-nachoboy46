@@ -50,25 +50,29 @@
     <aside id="preferences-panel">
       <h2>Reading Preferences</h2>
 
+      <p id="storage-warning" role="alert" aria-hidden="true" hidden>
+        Preferences cannot be saved because storage is full. Your choices will reset on the next visit.
+      </p>
+
       <fieldset>
         <legend>Color Theme</legend>
-        <label><input type="radio" name="theme" value="light"> Light</label>
-        <label><input type="radio" name="theme" value="dark"> Dark</label>
-        <label><input type="radio" name="theme" value="sepia"> Sepia</label>
+        <label><input type="radio" name="theme" value="light" tabindex="1"> Light</label>
+        <label><input type="radio" name="theme" value="dark" tabindex="2"> Dark</label>
+        <label><input type="radio" name="theme" value="sepia" tabindex="3"> Sepia</label>
       </fieldset>
 
       <fieldset>
         <legend>Font Size</legend>
-        <label><input type="radio" name="font-size" value="small"> Small</label>
-        <label><input type="radio" name="font-size" value="medium"> Medium</label>
-        <label><input type="radio" name="font-size" value="large"> Large</label>
+        <label><input type="radio" name="font-size" value="small" tabindex="4"> Small</label>
+        <label><input type="radio" name="font-size" value="medium" tabindex="5"> Medium</label>
+        <label><input type="radio" name="font-size" value="large" tabindex="6"> Large</label>
       </fieldset>
 
       <fieldset>
         <legend>Line Spacing</legend>
-        <label><input type="radio" name="spacing" value="compact"> Compact</label>
-        <label><input type="radio" name="spacing" value="normal"> Normal</label>
-        <label><input type="radio" name="spacing" value="relaxed"> Relaxed</label>
+        <label><input type="radio" name="spacing" value="compact" tabindex="7"> Compact</label>
+        <label><input type="radio" name="spacing" value="normal" tabindex="8"> Normal</label>
+        <label><input type="radio" name="spacing" value="relaxed" tabindex="9"> Relaxed</label>
       </fieldset>
 
       <button id="reset-btn" type="button">Reset to Defaults</button>
