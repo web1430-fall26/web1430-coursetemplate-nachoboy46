@@ -68,6 +68,26 @@ document.addEventListener('DOMContentLoaded', () => {
   syncRadioButtons(prefs);
 
   // 2. Listen for radio button changes
+  panel.addEventListener('change', function(event){
+    if(event.target != panel){
+      return;
+    }
+    const updated = loadPreferences();
+    if (event.target.name === 'theme'){
+      updated.theme = event.target.value;
+    }else if(event.target.name === 'font-size'){
+      updated.fontSize = event.target.value;
+    } else if(event.target.name === 'spacing'){
+      updated.spacing = event.target.value;
+    }
+
+    savePreferences(updated);
+    applyPreferences(updated,article);
+
+    
+  });
+
+
   // TODO: Add a 'change' listener to panel.
   // When a radio changes, load the current prefs, update the changed property,
   // save the updated prefs, and apply them.
