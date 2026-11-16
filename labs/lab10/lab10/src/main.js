@@ -1,3 +1,4 @@
+//Combines all previus files into one large file that runs everything
 import { products } from './data.js';
 import { renderGrid } from './render.js';
 import { buildFilter } from './events.js';

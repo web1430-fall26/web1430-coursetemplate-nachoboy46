@@ -1,0 +1,37 @@
+#product-grid{
+    background-color: aqua;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 24px;
+}
+
+body{
+    background-color: aqua;
+}
+
+#filter-bar{
+    background-color: aqua;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+
+article{
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    min-width: 200px;
+    background-color: pink;
+}
+
+button{
+    min-width: 100px;
+    height:40px;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: black;
+    background-color: beige;
+}
+

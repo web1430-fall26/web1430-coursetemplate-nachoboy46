@@ -1,13 +1,15 @@
-import { filterProducts, getCategories } from './utils.js';
+//Handles the button clicking with event listener
+import { getCategories, filterProducts } from './utils.js';
 import { renderGrid } from './render.js';
 
-export function buildFilter(products, bar, grid) {
-  getCategories(products).forEach(category => {
+export function buildFilter(products, filterContainer, gridContainer) {
+  getCategories(products).forEach(cat => {
     const btn = document.createElement('button');
-    btn.textContent = category;
+    btn.textContent = cat;
     btn.addEventListener('click', () => {
-      renderGrid(filterProducts(products, category), grid);
+      const filtered = filterProducts(products, cat);
+      renderGrid(filtered, gridContainer);
     });
-    bar.append(btn);
+    filterContainer.append(btn);
   });
 }
