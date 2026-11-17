@@ -1,9 +1,9 @@
 import { renderCards, showError, showEmpty, showLoading  } from "./render";
 import { normalizeCards } from "./normalize";
 import { fetchCards, fetchCardsFromUrl } from "./api";
-import { showMoreButton, resultsRegion } from "./constants";
+import { showMoreButton, resultsRegion, form} from "./constants";
 
-export function attachFormListener(form){
+export function attachFormListener(){
     form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const query = document.getElementById('search-input').value.trim();
@@ -40,7 +40,7 @@ export function attachFormListener(form){
     });
 }
 
-export function attachShowMoreButtonListener(showMoreButton){
+export function attachShowMoreButtonListener(){
     showMoreButton.addEventListener('click',async function(){
     showLoading();
     const moreGrossData = await fetchCardsFromUrl(resultsRegion.getAttribute('data-next-page-url'));

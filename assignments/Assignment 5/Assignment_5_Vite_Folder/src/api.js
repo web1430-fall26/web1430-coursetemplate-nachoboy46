@@ -1,6 +1,8 @@
+import { queryStart } from "./constants";
+
 export async function fetchCards(query) {
   const encodedQuery = encodeURIComponent(query); //witchcraft
-  const response = await fetch(`https://api.scryfall.com/cards/search?q=${encodedQuery}`);
+  const response = await fetch(`${queryStart}+${encodedQuery}`);
   let data = null;
 
   if(response.status === 404){
