@@ -37,8 +37,6 @@ async function fetchCardsFromUrl(Url) {
   return data;
 }
 
-//here
-
 function normalizeCards(data) {
   let list = [];
   data.forEach(function(card){
@@ -56,8 +54,6 @@ function showLoading() {
   loader.className = 'loader';
   loaderSymbol.appendChild(loader);
 }
-
-//here
 
 
 function showError(message) {
@@ -77,8 +73,6 @@ function showEmpty() {
   emptyMessage.innerText = 'No cards found. Try a different search.';
   resultsRegion.appendChild(emptyMessage);
 }
-
-//here
 
 function renderCards(cards, keepPreviousCards=false) {
   if(!keepPreviousCards){
@@ -123,8 +117,7 @@ function renderCards(cards, keepPreviousCards=false) {
 });
 }
 
-//here
-
+console.log('sl');
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const query = input.value.trim();
