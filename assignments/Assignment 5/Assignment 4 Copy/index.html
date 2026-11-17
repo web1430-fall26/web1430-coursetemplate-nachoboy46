@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scryfall API test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Scryfall Database Card Search</h1>
+
+    <form id="search-form">
+      <label for="search-input">Search by title</label>
+      <input type="search" id="search-input" placeholder="e.g. Dune" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- aria-live="polite" means screen readers will announce changes here -->
+    <div id="results-region" aria-live="polite" aria-label="Search results" data-next-page-url>
+      <!-- Status messages (loading, error, empty) and result cards are injected here -->
+    </div>
+    <div id="loading-symbol-container-for-centering"><div id="loading-symbol"></div></div>
+    <button class="load-more-cards-button" disabled>Load more cards</button>
+  </main>
+
+  <script type="module" src="/src/main.js" defer></script>
+</body>
+</html>
