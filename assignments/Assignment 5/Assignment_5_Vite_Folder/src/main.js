@@ -1,7 +1,6 @@
 import { attachFormListener, attachShowMoreButtonListener } from "./events";
 
-const form          = document.getElementById('search-form');
-const showMoreButton = document.querySelector('.load-more-cards-button');
+const form = document.getElementById('search-form');
 
 attachFormListener(form);
 attachShowMoreButtonListener(showMoreButton);
