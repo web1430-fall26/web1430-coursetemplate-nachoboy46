@@ -18,6 +18,7 @@ Endpoint: https://api.scryfall.com/cards/bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd
 {id:'bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd' name: 'Black Lotus', printing: 'vma', text: '{T}, Sacrifice this artifact: Add three mana of any one color.', colors: [], art: 'https://cards.scryfall.io/display/front/b/d/bd8fa327-dd41-4737-8f19-2cf5eb1f7cdd.webp?1783939332', type: 'Artifact'}
 
 | Property | Type | 
+|---|---|
 | id | string | 
 | name | string | 
 | printing | string |
