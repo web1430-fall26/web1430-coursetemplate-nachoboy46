@@ -1,4 +1,4 @@
-function renderCard(cardObject){
+export function renderCard(cardObject){
     const cardEl = document.createElement("article");
     cardEl.className = "mtg-card";
 

@@ -7,7 +7,24 @@
     <title>projecttwovite</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <section class="tab-buttons-section">
+        <button class="tab-button" id="tab-button-1" aria-selected="true" aria-controls="cards-tab">Search Cards</button>
+        <button class="tab-button" id="tab-button-2" aria-selected="false" aria-controls="decks-tab">View Decks</button>
+      </section>
+      <section class="tabs-section">
+        <section class="tab" id="cards-tab">
+          <form role="search" action="/search" method="GET" class="search-form">
+            <input class="searchbar" type="search">
+            <button type="submit" class="search-button">Search</button>
+          </form>
+          <section class="card-results-region"></section>
+        </section>
+        <section class="tab" i="decks-tab">
+
+        </section>
+      </section>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
