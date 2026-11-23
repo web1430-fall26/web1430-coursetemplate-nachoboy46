@@ -9,7 +9,6 @@ export async function fetchCardFromID(cardID){
 }
 
 export async function fetchCardsByQuery(query){
-
     const response = await fetch(`https://api.scryfall.com/cards/search?q=${encodeURIComponent(query)}`);
     if (response.ok){
         const cardData = await response.json();
@@ -19,18 +18,14 @@ export async function fetchCardsByQuery(query){
     }
 }
 
-export function normalizeCardData(rawData){
-    let cards = [];
-    rawData.data.forEach(function(cardObject){
-        cards.push({
-            id:cardObject.id,
-            name:cardObject.name,
-            printing:cardObject.set,
-            text:cardObject.oracle_text,
-            colors:cardObject.color_identity,
-            art:cardObject.image_uris?.normal, //question mark is protection for if it has multiple faces
-            type:cardObject.type_line
-        })
-    });
-    return cards;
+export async function getCardPrintings(printingsURL){
+    const response = await fetch(printingsURL);
+
+    if(response.ok){
+        const printings = await response.json();
+        return printings;
+    } else {
+        throw new Error(`Printings request failed ${response.status}`)
+    }
 }
+
